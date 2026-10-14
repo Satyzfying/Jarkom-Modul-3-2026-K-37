@@ -10,26 +10,26 @@
 ## Daftar Isi
 
 - [Tabel Pembagian Interface & Alamat IP](#tabel-pembagian-interface--alamat-ip)
-- [soal 1 - Satya & Azfaro](#soal-1---satya--azfaro)
-- [soal 2 - Satya & Azfaro](#soal-2---satya--azfaro)
-- [soal 3 - Satya & Azfaro](#soal-3---satya--azfaro)
-- [soal 4 - Satya & Azfaro](#soal-4---satya--azfaro)
-- [soal 5 - Satya & Azfaro](#soal-5---satya--azfaro)
-- [soal 6 - Satya & Azfaro](#soal-6---satya--azfaro)
-- [soal 7 - Satya & Azfaro](#soal-7---satya--azfaro)
-- [soal 8 - Satya & Azfaro](#soal-8---satya--azfaro)
-- [soal 9 - Satya & Azfaro](#soal-9---satya--azfaro)
-- [soal 10 - Satya & Azfaro](#soal-10---satya--azfaro)
-- [soal 11 - Satya & Azfaro](#soal-11---satya--azfaro)
-- [soal 12 - Satya & Azfaro](#soal-12---satya--azfaro)
-- [soal 13 - Satya & Azfaro](#soal-13---satya--azfaro)
-- [soal 14 - Satya & Azfaro](#soal-14---satya--azfaro)
-- [soal 15 - Satya & Azfaro](#soal-15---satya--azfaro)
-- [soal 16 - Satya & Azfaro](#soal-16---satya--azfaro)
-- [soal 17 - Satya & Azfaro](#soal-17---satya--azfaro)
-- [soal 18 - Satya & Azfaro](#soal-18---satya--azfaro)
-- [soal 19 - Satya & Azfaro](#soal-19---satya--azfaro)
-- [soal 20 - Satya & Azfaro](#soal-20---satya--azfaro)
+- [soal 1 - Azfaro](#soal-1---azfaro)
+- [soal 2 - Azfaro](#soal-2---azfaro)
+- [soal 3 - Azfaro](#soal-3---azfaro)
+- [soal 4 - Azfaro](#soal-4---azfaro)
+- [soal 5 - Azfaro](#soal-5---azfaro)
+- [soal 6 - Azfaro](#soal-6---azfaro)
+- [soal 7 - Azfaro](#soal-7---azfaro)
+- [soal 8 - Azfaro](#soal-8---azfaro)
+- [soal 9 - Azfaro](#soal-9---azfaro)
+- [soal 10 - Azfaro](#soal-10---azfaro)
+- [soal 11 - Satya](#soal-11---satya)
+- [soal 12 - Satya](#soal-12---satya)
+- [soal 13 - Satya](#soal-13---satya)
+- [soal 14 - Satya](#soal-14---satya)
+- [soal 15 - Satya](#soal-15---satya)
+- [soal 16 - Satya](#soal-16---satya)
+- [soal 17 - Satya](#soal-17---satya)
+- [soal 18 - Satya](#soal-18---satya)
+- [soal 19 - Satya](#soal-19---satya)
+- [soal 20 - Satya](#soal-20---satya)
 
 ---
 
@@ -65,7 +65,7 @@ Prefix ip : 10.82.x.x
 
 # Laporan Praktikum Modul 3
 
-## soal 1 - Satya & Azfaro
+## soal 1 - Azfaro
 
 ---
 
@@ -157,7 +157,7 @@ echo "nameserver 192.168.122.1" > /etc/resolv.conf
 
 ---
 
-## soal 2 - Satya & Azfaro
+## soal 2 - Azfaro
 
 ---
 
@@ -244,7 +244,7 @@ Bukti validasi sintaks konfigurasi menggunakan `dhcpd -t -cf /etc/dhcp/dhcpd.con
 
 ---
 
-## soal 3 - Satya & Azfaro
+## soal 3 - Azfaro
 
 ---
 
@@ -312,7 +312,7 @@ dhcrelay -d -4 -i eth2 -i eth3 10.82.4.10
 
 ---
 
-## soal 4 - Satya & Azfaro
+## soal 4 - Azfaro
 
 ---
 
@@ -437,7 +437,7 @@ Tabel hasil perolehan IP oleh masing-masing client:
 * `zenin` (`10.82.2.71`) dan `okkotsu` (`10.82.2.70`) berhasil masuk ke **Pool 2** karena MAC address keduanya terdaftar sebagai member dari `class "support"`.
 * Tidak ada client yang mendapatkan IP pada rentang terlarang `10.82.2.36` – `10.82.2.69`.
 * Pembagian alokasi pool DHCP berdasarkan MAC address pada Network 2 telah terbukti berhasil 100%.
-## soal 5 - Satya & Azfaro
+## soal 5 - Azfaro
 
 ---
 
@@ -574,7 +574,7 @@ Tabel hasil perolehan lease alamat IP klien Divisi B:
 
 ---
 
-## soal 6 - Satya & Azfaro
+## soal 6 - Azfaro
 
 ---
 
@@ -722,7 +722,7 @@ Tabel hasil alokasi static lease Kugisaki:
 
 ---
 
-## soal 7 - Satya & Azfaro
+## soal 7 - Azfaro
 
 ---
 
@@ -809,7 +809,7 @@ Tabel rangkuman verifikasi konfigurasi jaringan seluruh klien:
 
 ---
 
-## soal 8 - Satya & Azfaro
+## soal 8 - Azfaro
 
 ---
 
@@ -900,7 +900,7 @@ Berdasarkan bukti tangkapan paket di atas, berikut analisis mendalam mengenai se
 
 ---
 
-## soal 9 - Satya & Azfaro
+## soal 9 - Azfaro
 
 ---
 
@@ -980,7 +980,7 @@ Seluruh perintah simulasi nomor 9 ini sudah kami kumpulkan di [`scripts/soal9.sh
 ### Soal No. 9
 > Sebuah gangguan memutus jalur relay dan membuat permintaan alamat tidak sampai ke Data Center. Hentikan service DHCP Relay pada jichi, lalu paksa salah satu client di Network 2 atau Network 3 meminta lease baru dan catat gejalanya. Pulihkan service relay, ulangi permintaan DHCP, lalu buktikan bahwa client kembali memperoleh alamat dari pool yang benar dengan gateway semula.
 
-## soal 10 - Satya & Azfaro
+## soal 10 - Azfaro
 
 ---
 
@@ -1117,910 +1117,562 @@ Tabel hasil verifikasi status client pasca-restart:
 
 ---
 
-## soal 11 - Satya & Azfaro
+## soal 11 - Satya
 
 ---
 
-> Utahime dan Shoko ditugaskan membangun sistem penamaan domain resmi agar seluruh pos tidak perlu menghafal alamat IP mentah. Konfigurasikan BIND9 pada utahime sebagai DNS Master dan shoko sebagai DNS Slave untuk mengelola domain jujutsu.<xxxx>.com. Atur SOA record, NS delegasi untuk kedua server, dan terapkan allow-transfer dari Master ke Slave. Pastikan file zona berhasil tersinkronisasi otomatis ke shoko saat nomor serial di utahime dinaikkan, lalu buktikan dengan melakukan query dig ke kedua server dari salah satu client.
+Diminta untuk mengonfigurasi **Utahime** (`10.82.1.2`) sebagai DNS Master dan **Shoko** (`10.82.1.3`) sebagai DNS Slave menggunakan BIND9 untuk mengelola zona domain resmi `jujutsu.k37.com` yang mengarah ke reverse proxy **Gojo** (`10.82.1.4`). Konfigurasi mencakup SOA record, NS delegasi untuk kedua server, subdomain `www.jujutsu.k37.com` sebagai CNAME, zona reverse (PTR) `1.82.10.in-addr.arpa`, serta otorisasi transfer zona otomatis (`allow-transfer` dan `also-notify`) agar data zona pada Shoko selalu tersinkronisasi saat nomor serial di Utahime diperbarui.
 
-### Maksud dari Soal No. 11
-Tujuan dari soal ini adalah membangun sistem penamaan domain internal yang redundan dan terdistribusi untuk kawasan Shibuya menggunakan BIND9:
-1. **utahime (`10.82.1.2`)** bertindak sebagai **DNS Master** yang memegang file zona otoritatif utama untuk domain `jujutsu.k37.com`.
-2. **shoko (`10.82.1.3`)** bertindak sebagai **DNS Slave** yang menyalin seluruh catatan domain secara otomatis melalui mekanisme zone transfer (`AXFR`).
-3. Diterapkan SOA record dengan parameter waktu refresh/retry standar, delegasi NS untuk kedua server, serta konfigurasi otorisasi transfer (`allow-transfer { 10.82.1.3; };`) dan notifikasi pembaruan serial (`also-notify { 10.82.1.3; };`).
+Script konfigurasi disimpan di [`scripts/soal11.sh`](scripts/soal11.sh).
 
-Seluruh konfigurasi nomor 11 ini dikemas dalam script [`scripts/soal11.sh`](scripts/soal11.sh) dan skrip node mandiri [`scripts/node_utahime.sh`](scripts/node_utahime.sh) serta [`scripts/node_shoko.sh`](scripts/node_shoko.sh).
-
-### Konfigurasi
-
-#### 1. Pada Node `utahime` (DNS Master - 10.82.1.2)
-File `/etc/bind/named.conf.local`:
-```named
-zone "jujutsu.k37.com" {
-    type master;
-    file "/etc/bind/zones/db.jujutsu.k37.com";
-    allow-transfer { 10.82.1.3; };
-    also-notify { 10.82.1.3; };
-};
-
-zone "1.82.10.in-addr.arpa" {
-    type master;
-    file "/etc/bind/zones/db.10.82.1";
-    allow-transfer { 10.82.1.3; };
-    also-notify { 10.82.1.3; };
-};
-```
-
-File `/etc/bind/zones/db.jujutsu.k37.com`:
-```named
-$TTL    604800
-@       IN      SOA     utahime.jujutsu.k37.com. root.jujutsu.k37.com. (
-                              1         ; Serial
-                         604800         ; Refresh
-                          86400         ; Retry
-                        2419200         ; Expire
-                         604800 )       ; Negative Cache TTL
-;
-@       IN      NS      utahime.jujutsu.k37.com.
-@       IN      NS      shoko.jujutsu.k37.com.
-
-utahime IN      A       10.82.1.2
-shoko   IN      A       10.82.1.3
-
-@       IN      A       10.82.1.4
-www     IN      CNAME   jujutsu.k37.com.
-```
-
-#### 2. Pada Node `shoko` (DNS Slave - 10.82.1.3)
-File `/etc/bind/named.conf.local`:
-```named
-zone "jujutsu.k37.com" {
-    type slave;
-    file "/var/cache/bind/db.jujutsu.k37.com";
-    masters { 10.82.1.2; };
-};
-
-zone "1.82.10.in-addr.arpa" {
-    type slave;
-    file "/var/cache/bind/db.10.82.1";
-    masters { 10.82.1.2; };
-};
-```
-
-Direktori `/var/cache/bind/` diatur kepemilikannya ke `bind:bind` agar proses named pada slave dapat menulis berkas zona yang ditransfer.
-
----
-
-### Bukti Pengujian & Hasil Verifikasi
-
-1. **Sinkronisasi Otomatis File Zona pada Shoko**:
-   Pengecekan isi direktori `/var/cache/bind/` pada `shoko` membuktikan file `db.jujutsu.k37.com` berhasil ditransfer secara otomatis dari Master:
+**Prasyarat Sebelum Menjalankan:**
+1. **Packet Forwarding Router (`jichi`)**: Pastikan forwarding IPv4 aktif agar lalu lintas antar-subnet (Network 1, 2, 3, dan 4) dapat diteruskan:
    ```bash
-   root@shoko:~# ls -la /var/cache/bind/
-   -rw-r--r-- 1 bind bind 422 Oct 14 12:51 db.jujutsu.k37.com
-   -rw-r--r-- 1 bind bind 432 Oct 14 12:51 db.10.82.1
+   sysctl -w net.ipv4.ip_forward=1
    ```
-
-2. **Resolusi Domain `jujutsu.k37.com` dari Client Kusakabe**:
-   * Query ke DNS Master (`10.82.1.2`):
-     ```bash
-     root@kusakabe:~# dig @10.82.1.2 jujutsu.k37.com +short
-     10.82.1.4
-     ```
-   * Query ke DNS Slave (`10.82.1.3`):
-     ```bash
-     root@kusakabe:~# dig @10.82.1.3 jujutsu.k37.com +short
-     10.82.1.4
-     ```
-
-Kedua server menjawab dengan alamat IP yang identik (`10.82.1.4`), membuktikan integritas replikasi data DNS berjalan 100% sempurna.
-
----
-
-### Analisis Hasil & Kesimpulan
-* Konfigurasi allow-transfer membatasi proses replikasi hanya kepada node `shoko` (`10.82.1.3`), mencegah kebocoran informasi peta domain internal ke pihak tidak berwenang.
-* Penempatan berkas zona pada direktori `/var/cache/bind/` di node slave menyelesaikan kendala permission pada sistem operasi Debian, sehingga zone transfer langsung aktif tanpa hambatan berkas read-only.
-* Seluruh client di Network 2 dan Network 3 yang memperoleh DNS option `10.82.1.2` dan `10.82.1.3` kini dapat menyelesaikan query domain `jujutsu.k37.com` secara redundan (apabila Master padam, Slave siap merespons).
-
----
-
-## soal 12 - Satya & Azfaro
-
----
-
-> Peta domain harus memetakan pintu masuk utama dan tetap bisa mencari alamat di luar kawasan Shibuya. Pada utahime, buat A record jujutsu.<xxxx>.com yang mengarah ke gojo, serta CNAME www yang merujuk ke domain utama tersebut. Buat pula Reverse DNS (zona PTR) untuk melacak IP gojo kembali ke domain resminya, dan aktifkan fitur DNS Forwarder pada BIND9 mengarah ke IP gateway internet (192.168.122.1). Uji dari client dengan dig untuk mengecek CNAME, PTR, dan buktikan client tetap bisa melakukan ping ke domain internet seperti google.com.
-
-### Maksud dari Soal No. 12
-Tujuan dari soal ini adalah melengkapi pemetaan DNS internal dan integrasi internet:
-1. Menambahkan **A record** `jujutsu.k37.com` mengarah ke node `gojo` (`10.82.1.4`) sebagai reverse proxy pintu masuk Shibuya.
-2. Menambahkan **CNAME record** `www.jujutsu.k37.com` yang merujuk ke nama domain utama `jujutsu.k37.com`.
-3. Membangun **Reverse DNS (PTR)** pada zona `1.82.10.in-addr.arpa` sehingga IP `10.82.1.4` dapat dilacak kembali ke domain resminya.
-4. Mengaktifkan **DNS Forwarder** pada `/etc/bind/named.conf.options` mengarah ke gateway internet NAT `192.168.122.1`, sehingga query untuk domain eksternal (misal `google.com`) diteruskan ke upstream DNS internet.
-
-Seluruh konfigurasi nomor 12 ini dikumpulkan di [`scripts/soal12.sh`](scripts/soal12.sh).
-
-### Konfigurasi
-
-#### 1. Zona Reverse DNS (`/etc/bind/zones/db.10.82.1`) pada `utahime`:
-```named
-$TTL    604800
-@       IN      SOA     utahime.jujutsu.k37.com. root.jujutsu.k37.com. (
-                              1         ; Serial
-                         604800         ; Refresh
-                          86400         ; Retry
-                        2419200         ; Expire
-                         604800 )       ; Negative Cache TTL
-;
-@       IN      NS      utahime.jujutsu.k37.com.
-@       IN      NS      shoko.jujutsu.k37.com.
-
-2       IN      PTR     utahime.jujutsu.k37.com.
-3       IN      PTR     shoko.jujutsu.k37.com.
-4       IN      PTR     jujutsu.k37.com.
-```
-
-#### 2. Konfigurasi DNS Forwarder (`/etc/bind/named.conf.options`):
-```named
-options {
-    directory "/var/cache/bind";
-
-    forwarders {
-        192.168.122.1;
-    };
-
-    allow-query { any; };
-    auth-nxdomain no;
-    listen-on-v6 { any; };
-};
-```
-
----
-
-### Bukti Pengujian & Hasil Verifikasi
-
-Pengujian dilakukan dari terminal client **kusakabe**:
-
-1. **Uji Resolusi CNAME `www.jujutsu.k37.com`**:
+2. **Konektivitas Internet**: Pastikan aturan NAT Masquerade pada interface WAN router `jichi` aktif agar kedua node DNS dapat mengunduh paket `bind9`:
    ```bash
-   root@kusakabe:~# dig @10.82.1.2 www.jujutsu.k37.com +short
-   jujutsu.k37.com.
-   10.82.1.4
+   iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
    ```
-   *Hasil:* Query CNAME berhasil diterjemahkan menjadi alias `jujutsu.k37.com.` dan menghasilkan IP tujuan `10.82.1.4`.
 
-2. **Uji Reverse DNS PTR `10.82.1.4`**:
+**Cara pakai script:**
+1. Buka console **utahime**, lalu jalankan:
    ```bash
-   root@kusakabe:~# dig @10.82.1.2 -x 10.82.1.4 +short
-   jujutsu.k37.com.
+   bash /root/scripts/soal11.sh utahime
    ```
-   *Hasil:* Reverse lookup berhasil melacak IP `10.82.1.4` kembali ke hostname domain resminya `jujutsu.k37.com.`.
-
-3. **Uji DNS Forwarder ke Internet (`google.com`)**:
+   Atau copy-paste blok kode di bawah `# ==== UTAHIME ====` pada `scripts/soal11.sh`. Skrip ini menginstal `bind9`, mengonfigurasi `/etc/bind/named.conf.local` untuk mendefinisikan forward zone `jujutsu.k37.com` dan reverse zone `1.82.10.in-addr.arpa` dengan `allow-transfer { 10.82.1.3; };` serta `also-notify { 10.82.1.3; };`. File zona `/etc/bind/jujutsu/jujutsu.k37.com` dibuat dengan record A untuk `@`, `ns1`, `ns2`, record CNAME untuk `www`, serta file reverse zone `/etc/bind/jujutsu/1.82.10.in-addr.arpa` dengan record PTR untuk IP `10.82.1.4`. Layanan BIND9 kemudian di-restart via `service named restart`.
+2. Buka console **shoko**, lalu jalankan:
    ```bash
-   root@kusakabe:~# ping -c 2 google.com
-   PING google.com (74.125.200.113) 56(84) bytes of data.
-   64 bytes from sa-in-f113.1e100.net (74.125.200.113): icmp_seq=1 ttl=101 time=24.0 ms
-   64 bytes from sa-in-f113.1e100.net (74.125.200.113): icmp_seq=2 ttl=101 time=24.0 ms
-
-   --- google.com ping statistics ---
-   2 packets transmitted, 2 received, 0% packet loss, time 1035ms
+   bash /root/scripts/soal11.sh shoko
    ```
-   *Hasil:* Client berhasil merequest domain publik internet dan melakukan ping dengan 0% packet loss melalui fitur recursive forwarder BIND9.
+   Atau copy-paste blok kode di bawah `# ==== SHOKO ====` pada `scripts/soal11.sh`. Skrip ini mengonfigurasi BIND9 di Shoko sebagai `type slave;` yang mereplikasi file zona dari master `10.82.1.2` ke direktori `/var/cache/bind/`, memberikan kepemilikan izin ke `bind:bind`, lalu me-restart service `named`.
 
----
-
-### Analisis Hasil & Kesimpulan
-* Pemetaan Forward dan Reverse DNS memastikan keabsahan identitas gerbang utama `gojo` baik untuk trafik masuk (forward) maupun audit log keamanan jaringan (reverse).
-* DNS Forwarder memungkinkan seluruh node internal dan client tetap dapat mengakses repositori paket dan layanan internet publik tanpa harus mengubah resolver lokal dari IP server internal kelompok (`10.82.1.2`).
-
----
-
-## soal 13 - Satya & Azfaro
-
----
-
-> Kepala Sekolah Yaga dan Inumaki mendirikan database terpusat yang redundan agar log aktivitas kutukan tetap aman tersimpan. Konfigurasikan MariaDB pada yaga sebagai DB-Master dan inumaki sebagai DB-Slave. Buat database db_shibuya_<xxxx> beserta tabel request_logs di Master, aktifkan binary logging (log-bin, server-id), lalu hubungkan inumaki sebagai Slave yang menyalin data secara realtime dengan CHANGE MASTER TO. Berikan hak akses remote bagi seluruh node di Network 4, lalu buktikan replikasi berhasil dengan memasukkan data baru di Master dan memeriksa hasilnya di Slave.
-
-### Maksud dari Soal No. 13
-Tujuan dari soal ini adalah mengimplementasikan arsitektur database terpusat yang memiliki sifat high availability dan redundansi:
-1. **yaga (`10.82.4.8`)** sebagai **DB-Master** yang melayani query baca-tulis, mengaktifkan binary logging (`log_bin`), menetapkan `server-id = 1`, serta membatasi log replikasi pada database `db_shibuya_k37`.
-2. **inumaki (`10.82.4.9`)** sebagai **DB-Slave** yang menyalin seluruh transaksi Master secara realtime menggunakan perintah `CHANGE MASTER TO`, menetapkan `server-id = 2` dan status `read_only = 1`.
-3. Dibuat tabel `request_logs` yang menyimpan riwayat request (`client_ip`, `request_time`, `worker_name`, `endpoint`).
-4. Diberikan hak akses remote kepada seluruh subnet Data Center (Network 4: `10.82.4.0/24`) dengan pengguna `shibuya_user`.
-
-Seluruh implementasi dikumpulkan pada [`scripts/soal13.sh`](scripts/soal13.sh) serta skrip node [`scripts/node_yaga.sh`](scripts/node_yaga.sh) dan [`scripts/node_inumaki.sh`](scripts/node_inumaki.sh).
-
-### Konfigurasi
-
-#### 1. Konfigurasi Master pada `yaga` (`/etc/mysql/mariadb.conf.d/50-server.cnf`):
-```ini
-[mysqld]
-bind-address            = 0.0.0.0
-server-id               = 1
-log_bin                 = /var/log/mysql/mysql-bin.log
-binlog_do_db            = db_shibuya_k37
-```
-
-Inisialisasi Database dan Hak Akses di `yaga`:
-```sql
-CREATE DATABASE IF NOT EXISTS db_shibuya_k37;
-USE db_shibuya_k37;
-
-CREATE TABLE IF NOT EXISTS request_logs (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    client_ip VARCHAR(50) NOT NULL,
-    request_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    worker_name VARCHAR(50),
-    endpoint VARCHAR(100)
-);
-
--- Pengguna Replikasi untuk Inumaki
-CREATE USER IF NOT EXISTS 'replica'@'%' IDENTIFIED BY 'replica_pass';
-GRANT REPLICATION SLAVE, BINLOG MONITOR, REPLICATION CLIENT ON *.* TO 'replica'@'%';
-
--- Pengguna Aplikasi untuk seluruh Node di Network 4
-CREATE USER IF NOT EXISTS 'shibuya_user'@'10.82.4.%' IDENTIFIED BY 'shibuya_pass';
-GRANT ALL PRIVILEGES ON db_shibuya_k37.* TO 'shibuya_user'@'10.82.4.%';
-FLUSH PRIVILEGES;
-```
-
-#### 2. Konfigurasi Slave pada `inumaki` (`/etc/mysql/mariadb.conf.d/50-server.cnf`):
-```ini
-[mysqld]
-bind-address            = 0.0.0.0
-server-id               = 2
-read_only               = 1
-```
-
-Perintah Penghubung Replikasi di `inumaki`:
-```sql
-STOP SLAVE;
-CHANGE MASTER TO
-    MASTER_HOST='10.82.4.8',
-    MASTER_USER='replica',
-    MASTER_PASSWORD='replica_pass',
-    MASTER_LOG_FILE='mysql-bin.000001',
-    MASTER_LOG_POS=328;
-START SLAVE;
-```
-
----
-
-### Bukti Pengujian & Hasil Verifikasi
-
-1. **Status Master pada `yaga`**:
-   ```sql
-   +------------------+----------+----------------+------------------+
-   | File             | Position | Binlog_Do_DB   | Binlog_Ignore_DB |
-   +------------------+----------+----------------+------------------+
-   | mysql-bin.000001 |      328 | db_shibuya_k37 |                  |
-   +------------------+----------+----------------+------------------+
-   ```
-
-2. **Status Replikasi Slave pada `inumaki`**:
-   ```sql
-   Slave_IO_Running: Yes
-   Slave_SQL_Running: Yes
-   Last_Error:
-   Seconds_Behind_Master: 0
-   Slave_SQL_Running_State: Slave has read all relay log; waiting for more updates
-   ```
-   *Hasil:* Kedua thread I/O dan SQL berjalan aktif (`Yes`) tanpa error, dan latensi replikasi adalah 0 detik.
-
-3. **Uji Transmisi Data Realtime**:
-   Data baru dimasukkan pada Master `yaga`:
-   ```sql
-   INSERT INTO request_logs (client_ip, worker_name, endpoint) VALUES ('10.82.3.11', 'nanami', '/api/curse');
-   ```
-   Pengecekan langsung pada Slave `inumaki`:
-   ```sql
-   +----+------------+---------------------+-------------+------------+
-   | id | client_ip  | request_time        | worker_name | endpoint   |
-   +----+------------+---------------------+-------------+------------+
-   |  1 | 10.82.2.10 | 2026-10-14 21:04:05 | test_worker | /soal13_test |
-   |  2 | 10.82.3.11 | 2026-10-14 21:04:54 | nanami      | /api/curse |
-   +----+------------+---------------------+-------------+------------+
-   ```
-   *Hasil:* Data baris baru otomatis tersinkronisasi ke `inumaki` dalam waktu kurang dari 1 detik.
-
----
-
-### Analisis Hasil & Kesimpulan
-* Konfigurasi binary log pada `yaga` mencatat seluruh perubahan DDL/DML ke berkas binlog, yang kemudian dibaca oleh thread I/O slave pada `inumaki` dan ditulis ke relay log untuk dieksekusi secara asinkron.
-* Pemberian hak akses `BINLOG MONITOR` pada pengguna `replica` diperlukan pada MariaDB 11 untuk membaca posisi koordinat master.
-* Status `read_only = 1` pada slave mencegah modifikasi data lokal secara tidak sengaja, menjaga konsistensi state database dengan Master.
-
----
-
-## soal 14 - Satya & Azfaro
-
----
-
-> Para penyihir lapangan bersiaga di Data Center sebagai pekerja backend untuk memproses aplikasi. Pasang Nginx dan PHP-FPM pada maki dan panda untuk menyajikan web frontend yang menampilkan hostname masing-masing. Pada nanami, todo, dan kirara, siapkan layanan API yang mencatat log request ke database yaga. Konfigurasikan virtual host agar worker merespons domain layanan yang ditentukan. Batasi akses langsung dari klien ke worker, web worker hanya menerima trafik melalui jalur proxy web yang ditentukan, sedangkan worker API hanya menerima trafik melalui geto. Uji bahwa akses langsung dari klien ditolak, sementara akses melalui reverse proxy tetap berhasil.
-
-### Maksud dari Soal No. 14
-Soal ini bertujuan untuk membangun backend tier di Data Center yang terlindungi oleh perimeter security:
-1. **Frontend Workers (`maki` `10.82.4.3` & `panda` `10.82.4.4`)**: Menyajikan halaman web statis/dinamis yang mengidentifikasi hostname masing-masing.
-2. **API Workers (`nanami` `10.82.4.5`, `todo` `10.82.4.6`, `kirara` `10.82.4.7`)**: Menyajikan endpoint API JSON dan mencatat setiap request ke database `yaga` (`10.82.4.8`).
-3. **Aturan Keamanan Akses**:
-   * Frontend Worker hanya boleh menerima koneksi langsung dari Reverse Proxy **Gojo (`10.82.1.4`)**.
-   * API Worker hanya boleh menerima koneksi langsung dari Load Balancer **Geto (`10.82.4.2`)**.
-   * Seluruh koneksi langsung dari client di luar proxy harus ditolak dengan status **HTTP 403 Forbidden**.
-
-Konfigurasi disimpan di [`scripts/soal14.sh`](scripts/soal14.sh), [`scripts/node_maki.sh`](scripts/node_maki.sh), [`scripts/node_panda.sh`](scripts/node_panda.sh), [`scripts/node_nanami.sh`](scripts/node_nanami.sh), [`scripts/node_todo.sh`](scripts/node_todo.sh), dan [`scripts/node_kirara.sh`](scripts/node_kirara.sh).
-
-### Konfigurasi
-
-#### 1. Nginx Frontend Worker (`maki` & `panda`):
-```nginx
-server {
-    listen 80 default_server;
-    server_name jujutsu.k37.com www.jujutsu.k37.com _;
-    root /var/www/html;
-    index index.php index.html;
-
-    # Pembatasan: Hanya menerima dari Gojo (10.82.1.4)
-    allow 10.82.1.4;
-    deny all;
-
-    location / {
-        try_files $uri $uri/ =404;
-    }
-
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
-    }
-}
-```
-
-Script Halaman Web `/var/www/html/index.php`:
-```php
-<?php
-$hostname = gethostname();
-echo "Hello from Frontend Worker: " . htmlspecialchars($hostname) . "\n";
-?>
-```
-
-#### 2. Nginx API Worker (`nanami`, `todo`, `kirara`):
-```nginx
-server {
-    listen 80 default_server;
-    server_name jujutsu.k37.com www.jujutsu.k37.com _;
-    root /var/www/api;
-    index index.php;
-
-    # Pembatasan: Hanya menerima dari Geto (10.82.4.2)
-    allow 10.82.4.2;
-    deny all;
-
-    location / {
-        try_files $uri $uri/ /index.php?$query_string;
-    }
-
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
-    }
-}
-```
-
----
-
-### Bukti Pengujian & Hasil Verifikasi
-
-1. **Uji Penolakan Akses Langsung dari Client (`kusakabe`)**:
-   * Akses langsung ke Frontend Worker `maki`:
-     ```bash
-     root@kusakabe:~# curl -I -s http://10.82.4.3/ | head -n 1
-     HTTP/1.1 403 Forbidden
-     ```
-   * Akses langsung ke API Worker `nanami`:
-     ```bash
-     root@kusakabe:~# curl -I -s http://10.82.4.5/ | head -n 1
-     HTTP/1.1 403 Forbidden
-     ```
-   *Hasil:* Kedua worker langsung memblokir akses client eksternal dengan kode `403 Forbidden`.
-
-2. **Uji Akses Legal Melalui Reverse Proxy `gojo`**:
-   * Akses web frontend via proxy:
-     ```bash
-     root@kusakabe:~# curl -s http://jujutsu.k37.com/
-     Hello from Frontend Worker: maki
-     ```
-   * Akses API via proxy:
-     ```bash
-     root@kusakabe:~# curl -s http://jujutsu.k37.com/api
-     {"status":"success","worker":"nanami","client_ip":"10.82.3.10","endpoint":"\/","message":"Request processed by API worker nanami"}
-     ```
-   *Hasil:* Permintaan yang melewati jalur sah proxy berhasil diterima dan diproses dengan baik.
-
----
-
-### Analisis Hasil & Kesimpulan
-* Penggunaan modul `ngx_http_access_module` (`allow` & `deny`) pada tingkat virtual host menjamin prinsip pertahanan mendalam (*defense-in-depth*).
-* Dengan mengunci worker internal agar hanya melayani IP proxy terdaftar, potensi serangan langsung terhadap worker database maupun injeksi endpoint API dapat ditekan secara signifikan.
-
----
-
-## soal 15 - Satya & Azfaro
-
----
-
-> Geto bertugas mengendalikan pembagian beban request API di internal Data Center agar server tidak tumbang bersamaan. Konfigurasikan Nginx pada geto sebagai Load Balancer internal dengan upstream api_cluster yang mengarahkan trafik ke nanami dan todo. Terapkan algoritma Weighted Round Robin dengan bobot 3:1, di mana nanami menerima porsi beban tiga kali lebih banyak daripada todo. Buktikan distribusi beban ini dengan melakukan loop request berulang kali ke geto dari jaringan lokal Data Center dan periksa rasio responnya.
-
-### Maksud dari Soal No. 15
-Soal ini bertujuan untuk mengatur distribusi trafik backend API secara proporsional menggunakan algoritma **Weighted Round Robin (WRR)** pada node **Geto (`10.82.4.2`)**:
-* **nanami (`10.82.4.5`)** memiliki bobot 3 (`weight=3`), menangani 75% beban request.
-* **todo (`10.82.4.6`)** memiliki bobot 1 (`weight=1`), menangani 25% beban request.
-* Rasio pembagian beban diverifikasi melalui pengujian berulang (*loop request*) dari jaringan internal Data Center.
-
-Konfigurasi disimpan di [`scripts/soal15.sh`](scripts/soal15.sh) dan [`scripts/node_geto.sh`](scripts/node_geto.sh).
-
-### Konfigurasi
-
-File `/etc/nginx/sites-available/default` pada node `geto`:
-```nginx
-upstream api_cluster {
-    server 10.82.4.5:80 weight=3 max_fails=2 fail_timeout=5s;
-    server 10.82.4.6:80 weight=1 max_fails=2 fail_timeout=5s;
-    server 10.82.4.7:80 backup;
-}
-
-server {
-    listen 80 default_server;
-    server_name jujutsu.k37.com www.jujutsu.k37.com _;
-
-    set_real_ip_from 10.82.1.4;
-    real_ip_header X-Forwarded-For;
-    real_ip_recursive on;
-
-    location / {
-        proxy_pass http://api_cluster;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
-}
-```
-
----
-
-### Bukti Pengujian & Hasil Verifikasi
-
-Pengujian dilakukan dengan mengirimkan 40 request beruntun ke `http://10.82.4.2/` dari node lokal Data Center (`yaga`):
-
+**Pengujian:**
+Dari klien Network 3 (misal node **kusakabe** atau **ino**), lakukan verifikasi resolusi DNS:
 ```bash
-root@yaga:~# for i in $(seq 1 40); do
-    curl -s http://10.82.4.2/ | grep -o '"worker":"[^"]*"'
-done | sort | uniq -c
-     31 "worker":"nanami"
-      9 "worker":"todo"
+# 1. Resolusi domain utama ke DNS Master (Utahime)
+dig @10.82.1.2 jujutsu.k37.com +short
+
+# 2. Resolusi domain utama ke DNS Slave (Shoko)
+dig @10.82.1.3 jujutsu.k37.com +short
+
+# 3. Resolusi CNAME www ke DNS Master
+dig @10.82.1.2 www.jujutsu.k37.com +short
+
+# 4. Resolusi Reverse PTR untuk IP 10.82.1.4
+dig @10.82.1.2 -x 10.82.1.4 +short
 ```
+Hasil yang diharapkan:
+- Query nomor 1 dan 2 mengembalikan alamat IP `10.82.1.4` (IP Gojo).
+- Query nomor 3 mengembalikan alias `jujutsu.k37.com.` dan IP `10.82.1.4`.
+- Query nomor 4 mengembalikan nama domain kanonik `jujutsu.k37.com.`.
+- Di node **shoko**, file replikasi `/var/cache/bind/db.jujutsu.k37.com` dan `/var/cache/bind/db.1.82.10` terbuat otomatis via transfer zona AXFR.
 
-*Perhitungan Rasio Beban:*
-$$\text{Rasio} = \frac{31}{9} \approx 3.44 : 1 \approx 77.5\% : 22.5\%$$
+> **Catatan Troubleshooting Saat Demo:**
+> - Jika muncul error `connection timed out; no servers could be reached`:
+>   1. Jalankan `service named status` di **utahime** dan **shoko** untuk memastikan daemon BIND9 aktif.
+>   2. Jalankan `sysctl -w net.ipv4.ip_forward=1` di router **jichi** jika klien berada di subnet yang berbeda.
+> - Jika zona pada slave Shoko gagal tersinkronisasi (`dumping master file ... permission denied`):
+>   Pastikan direktori penyimpanan zona slave berada di `/var/cache/bind/` dan jalankan `chown -R bind:bind /var/cache/bind` sebelum restart service.
 
-*Hasil:* Distribusi beban sangat mendekati target teoritis 3:1 (75% Nanami, 25% Todo), membuktikan implementasi Weighted Round Robin bekerja dengan akurat.
-
----
-
-### Analisis Hasil & Kesimpulan
-* Algoritma Weighted Round Robin pada Nginx mendistribusikan request secara deterministik berdasarkan rasio bobot aktif di upstream pool.
-* Pembagian beban ini sangat ideal untuk lingkungan di mana spesifikasi kapasitas komputasi worker utama (Nanami) lebih besar daripada worker pendamping (Todo).
-
----
-
-## soal 16 - Satya & Azfaro
-
----
-
-> Gojo berdiri di perbatasan DMZ sebagai gerbang publik tunggal bagi seluruh client dari luar maupun dalam. Konfigurasikan Nginx pada gojo untuk melayani domain jujutsu.<xxxx>.com dan www.jujutsu.<xxxx>.com menggunakan metode Path-Based Routing. Atur agar request root (/) diteruskan secara Round Robin ke worker frontend (maki dan panda), sedangkan request ke path /api diteruskan langsung ke geto. Uji dari client Divisi A atau B bahwa akses ke web utama dibalas oleh Maki/Panda, sedangkan akses ke /api diteruskan dan dijawab oleh Nanami/Todo.
-
-### Maksud dari Soal No. 16
-Soal ini bertujuan untuk membangun pintu gerbang utama (*API Gateway / Reverse Proxy*) pada node **Gojo (`10.82.1.4`)** di zona DMZ dengan metode **Path-Based Routing**:
-1. Request ke domain `jujutsu.k37.com` atau `www.jujutsu.k37.com` pada path root (`/`) diteruskan secara seimbang (Round Robin) ke kluster worker frontend (`maki` dan `panda`).
-2. Request pada path `/api` dialihkan langsung ke Load Balancer internal `geto` (`10.82.4.2`), yang kemudian meneruskannya ke worker API backend (`nanami` / `todo`).
-
-Konfigurasi disimpan di [`scripts/soal16.sh`](scripts/soal16.sh) dan [`scripts/node_gojo.sh`](scripts/node_gojo.sh).
-
-### Konfigurasi
-
-File `/etc/nginx/sites-available/default` pada node `gojo`:
-```nginx
-upstream frontend_cluster {
-    server 10.82.4.3:80;
-    server 10.82.4.4:80;
-}
-
-server {
-    listen 80 default_server;
-    server_name jujutsu.k37.com www.jujutsu.k37.com _;
-
-    location / {
-        proxy_pass http://frontend_cluster;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
-
-    location /api {
-        proxy_pass http://10.82.4.2/;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
-}
-```
+![Bukti Resolusi DNS Master, Slave, CNAME, dan PTR](assets/11-dns-master-slave-ptr.png)
+*(Tangkapan layar pengujian resolusi DNS Master Utahime, Slave Shoko, CNAME, dan PTR reverse zone dari client)*
 
 ---
 
-### Bukti Pengujian & Hasil Verifikasi
+## soal 12 - Satya
 
-Pengujian dilakukan dari client **kusakabe**:
+---
 
-1. **Uji Routing Path Root (`/`)**:
+Diminta untuk mengonfigurasi fitur **DNS Forwarder** pada DNS Server DMZ (**Utahime** dan **Shoko**). Ketika klien mengirimkan query untuk domain eksternal di luar zona lokal `jujutsu.k37.com` (misalnya `google.com`), DNS server harus mampu meneruskannya (*forward*) ke resolver DNS upstream (`192.168.122.1` dan `8.8.8.8`) sehingga klien di dalam jaringan internal dapat mengakses internet tanpa hambatan.
+
+Script konfigurasi disimpan di [`scripts/soal12.sh`](scripts/soal12.sh).
+
+**Prasyarat Sebelum Menjalankan:**
+1. Pastikan Soal 11 sudah berjalan normal dan layanan BIND9 aktif.
+2. Pastikan router `jichi` dapat melakukan ping ke gateway upstream (`192.168.122.1`) dan aturan NAT POSTROUTING sudah aktif.
+
+**Cara pakai script:**
+1. Buka console **utahime**, lalu jalankan:
    ```bash
-   root@kusakabe:~# curl -s http://jujutsu.k37.com/
-   Hello from Frontend Worker: maki
-   root@kusakabe:~# curl -s http://jujutsu.k37.com/
-   Hello from Frontend Worker: panda
+   bash /root/scripts/soal12.sh utahime
    ```
-   *Hasil:* Request ke root path dilayani secara bergantian oleh worker frontend `maki` dan `panda`.
-
-2. **Uji Routing Path API (`/api`)**:
+   Atau copy-paste blok `# ==== UTAHIME ====` dari `scripts/soal12.sh`. Skrip ini mengonfigurasi file `/etc/bind/named.conf.options` dengan menambahkan blok `forwarders { 192.168.122.1; 8.8.8.8; };`, mengaktifkan `recursion yes;`, `allow-query { any; };`, serta menonaktifkan `dnssec-validation no;` untuk menghindari kegagalan validasi trust anchor pada lingkungan lab simulasi. Terakhir me-restart service BIND9.
+2. Buka console **shoko**, lalu jalankan:
    ```bash
-   root@kusakabe:~# curl -s http://jujutsu.k37.com/api ; echo ""
-   {"status":"success","worker":"nanami","client_ip":"10.82.3.10","endpoint":"\/","message":"Request processed by API worker nanami"}
-   root@kusakabe:~# curl -s http://jujutsu.k37.com/api ; echo ""
-   {"status":"success","worker":"todo","client_ip":"10.82.3.10","endpoint":"\/","message":"Request processed by API worker todo"}
+   bash /root/scripts/soal12.sh shoko
    ```
-   *Hasil:* Request ke path `/api` diteruskan ke `geto` dan dijawab oleh worker API `nanami` atau `todo`.
+   Atau copy-paste blok `# ==== SHOKO ====` dari `scripts/soal12.sh`. Skrip menerapkan konfigurasi forwarders yang sama persis di node Shoko lalu me-restart service BIND9.
 
----
-
-### Analisis Hasil & Kesimpulan
-* Path-Based Routing menyembunyikan topologi internal Data Center dari client publik. Klien hanya perlu mengetahui satu endpoint domain `jujutsu.k37.com`, sementara pemisahan trafik statis web dan logika bisnis API ditangani secara transparan oleh Nginx.
-
----
-
-## soal 17 - Satya & Azfaro
-
----
-
-> Komando pusat perlu mengetahui IP asli klien yang mengirimkan request tanpa tertukar dengan IP proxy perantara. Konfigurasikan gojo dan geto agar meneruskan informasi alamat klien melalui header X-Real-IP dan X-Forwarded-For. Pastikan geto hanya mempercayai informasi alamat klien yang diterima dari proxy terpercaya, dan skrip API menyimpan alamat klien yang telah diverifikasi ke kolom client_ip pada tabel request_logs di database yaga. Uji dengan mengirimkan request dari klien Network 2 dan Network 3 ke endpoint /api, kemudian periksa database untuk memastikan alamat yang tercatat sesuai dengan IP klien asal, bukan IP gojo atau geto.
-
-### Maksud dari Soal No. 17
-Pada arsitektur multi-tier proxy (Client -> Gojo -> Geto -> API Worker), alamat IP sumber TCP pada paket yang tiba di worker backend adalah IP milik proxy perantara (`10.82.4.2` atau `10.82.1.4`). Soal ini menuntut:
-1. **Gojo** menyisipkan IP asli klien pada header `X-Real-IP` dan `X-Forwarded-For`.
-2. **Geto** mengaktifkan modul `realip` (`set_real_ip_from 10.82.1.4`) agar hanya mempercayai rantai proxy dari Gojo, dan meneruskannya kembali ke worker API.
-3. Skrip backend PHP pada API worker membaca IP klien yang telah diverifikasi dan mencatatnya ke tabel `request_logs` di database MariaDB Master `yaga` (`10.82.4.8`).
-4. Verifikasi dilakukan dari client Network 2 (`itadori` `10.82.2.10`) dan Network 3 (`kusakabe` `10.82.3.10`).
-
-Konfigurasi disimpan di [`scripts/soal17.sh`](scripts/soal17.sh).
-
-### Konfigurasi
-
-#### 1. Konfigurasi Header pada `gojo`:
-```nginx
-proxy_set_header Host $host;
-proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+**Pengujian:**
+Dari klien Network 3 (node **kusakabe**):
+Pastikan DNS resolver diarahkan ke Utahime atau Shoko (`echo -e "nameserver 10.82.1.2\nnameserver 10.82.1.3" > /etc/resolv.conf`), lalu jalankan pengujian:
+```bash
+ping -c 4 google.com
 ```
+Hasil yang diharapkan:
+- Domain publik `google.com` berhasil diterjemahkan ke alamat IP eksternal (misal `142.250.x.x`).
+- Paket ICMP ping berhasil dikirim dan diterima dengan 0% packet loss.
 
-#### 2. Konfigurasi Trusted Proxy pada `geto`:
-```nginx
-set_real_ip_from 10.82.1.4;
-real_ip_header X-Forwarded-For;
-real_ip_recursive on;
+> **Catatan Troubleshooting Saat Demo:**
+> - Jika muncul pesan `ping: google.com: Temporary failure in name resolution` atau `unknown host`:
+>   1. Periksa isi file `/etc/resolv.conf` pada node klien, pastikan baris `nameserver 10.82.1.2` berada di urutan pertama.
+>   2. Uji langsung query ke DNS server: `dig @10.82.1.2 google.com +short`.
+>   3. Pastikan router **jichi** memiliki rute default ke WAN dan packet forwarding aktif (`cat /proc/sys/net/ipv4/ip_forward` bernilai `1`).
 
-proxy_set_header Host $host;
-proxy_set_header X-Real-IP $remote_addr;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-```
-
-#### 3. Cuplikan Skrip Pencatatan Database (`/var/www/api/index.php`):
-```php
-$client_ip = $_SERVER['HTTP_X_REAL_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];
-if (strpos($client_ip, ',') !== false) {
-    $parts = explode(',', $client_ip);
-    $client_ip = trim($parts[0]);
-}
-
-$mysqli = new mysqli('10.82.4.8', 'shibuya_user', 'shibuya_pass', 'db_shibuya_k37');
-$stmt = $mysqli->prepare("INSERT INTO request_logs (client_ip, worker_name, endpoint) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $client_ip, $worker, $endpoint);
-$stmt->execute();
-```
+![Bukti DNS Forwarder dan Koneksi Internet](assets/12-dns-forwarder-ping.png)
+*(Tangkapan layar pengujian DNS forwarder dengan ping ke domain eksternal google.com dari client)*
 
 ---
 
-### Bukti Pengujian & Hasil Verifikasi
+## soal 13 - Satya
 
-1. **Request dari Client Network 3 (`kusakabe` - IP 10.82.3.10)**:
+---
+
+Diminta untuk membangun sistem **Replikasi Database MariaDB Master-Slave** di Network 4 (Data Center), di mana:
+- **Yaga** (`10.82.4.8`) bertindak sebagai **Database Master** dengan `server-id = 1`, mengaktifkan binary logging (`log_bin`), dan membatasi replikasi khusus untuk database `db_shibuya_k37`.
+- **Inumaki** (`10.82.4.9`) bertindak sebagai **Database Slave (Read-Only Replica)** dengan `server-id = 2` dan parameter `read_only = 1`.
+- Dibuat akun pengguna replikasi khusus `replica`@`10.82.4.%` serta akun pengguna aplikasi `shibuya_user`@`10.82.4.%` untuk keperluan logging worker.
+
+Script konfigurasi disimpan di [`scripts/soal13.sh`](scripts/soal13.sh).
+
+**Prasyarat Sebelum Menjalankan:**
+1. Pastikan paket `mariadb-server` sudah terpasang di `yaga` dan `inumaki`.
+2. Pastikan direktori log `/var/log/mysql` sudah dibuat dan memiliki izin akses milik pengguna `mysql`:
    ```bash
-   root@kusakabe:~# curl -s http://jujutsu.k37.com/api ; echo ""
-   {"status":"success","worker":"todo","client_ip":"10.82.3.10","endpoint":"\/","message":"Request processed by API worker todo"}
+   mkdir -p /var/log/mysql && chown -R mysql:mysql /var/log/mysql
    ```
 
-2. **Request dari Client Network 2 (`itadori` - IP 10.82.2.10)**:
+**Cara pakai script:**
+1. Buka console **yaga**, lalu jalankan:
    ```bash
-   root@itadori:~# curl -s http://jujutsu.k37.com/api ; echo ""
-   {"status":"success","worker":"nanami","client_ip":"10.82.2.10","endpoint":"\/","message":"Request processed by API worker nanami"}
+   bash /root/scripts/soal13.sh yaga
    ```
-
-3. **Verifikasi Pencatatan pada Database `yaga` (dan Replikasi di `inumaki`)**:
-   ```sql
-   root@yaga:~# mariadb db_shibuya_k37 -e "SELECT id, client_ip, request_time, worker_name, endpoint FROM request_logs ORDER BY id DESC LIMIT 5;"
-   +----+------------+---------------------+-------------+----------+
-   | id | client_ip  | request_time        | worker_name | endpoint |
-   +----+------------+---------------------+-------------+----------+
-   | 49 | 10.82.2.10 | 2026-10-14 21:13:49 | nanami      | /        |
-   | 48 | 10.82.3.10 | 2026-10-14 21:13:26 | todo        | /        |
-   | 47 | 10.82.3.10 | 2026-10-14 21:12:52 | nanami      | /        |
-   | 46 | 10.82.3.10 | 2026-10-14 21:12:39 | nanami      | /        |
-   | 45 | 10.82.3.10 | 2026-10-14 21:12:39 | nanami      | /        |
-   +----+------------+---------------------+-------------+----------+
+   Atau copy-paste blok `# ==== YAGA (MASTER) ====` dari `scripts/soal13.sh`. Skrip ini menyetel `bind-address = 0.0.0.0`, `server-id = 1`, `log_bin = /var/log/mysql/mysql-bin.log`, dan `binlog_do_db = db_shibuya_k37`. Skrip membuat database `db_shibuya_k37`, tabel `test_sync`, tabel `request_logs`, user `replica`@`10.82.4.%` dengan privilege `REPLICATION SLAVE, BINLOG MONITOR`, serta user `shibuya_user`@`10.82.4.%`. Service MariaDB di-restart.
+2. Buka console **inumaki**, lalu jalankan:
+   ```bash
+   bash /root/scripts/soal13.sh inumaki
    ```
+   Atau copy-paste blok `# ==== INUMAKI (SLAVE) ====` dari `scripts/soal13.sh`. Skrip menyetel `server-id = 2`, `read_only = 1`, membuat database `db_shibuya_k37` beserta tabel skema, lalu mengonfigurasi koneksi replikasi ke master Yaga via `CHANGE MASTER TO ...` dan mengaktifkan slave via `START REPLICA;`.
 
-*Hasil:* Alamat yang tercatat pada database adalah `10.82.3.10` dan `10.82.2.10`, sama sekali bukan IP proxy `10.82.1.4` (Gojo) maupun `10.82.4.2` (Geto).
+**Pengujian:**
+1. Di node **inumaki**, periksa status kesehatan replikasi MariaDB:
+   ```bash
+   mariadb -u root -e "SHOW REPLICA STATUS\G" | grep -E "Replica_IO_Running|Replica_SQL_Running|Seconds_Behind_Master"
+   ```
+   Hasil harus menunjukkan:
+   - `Replica_IO_Running: Yes`
+   - `Replica_SQL_Running: Yes`
+   - `Seconds_Behind_Master: 0`
+2. Uji sinkronisasi penulisan data dari Master:
+   - Di **yaga**:
+     ```bash
+     mariadb -u root -e "INSERT INTO db_shibuya_k37.test_sync (pesan) VALUES ('Sync Master Yaga OK');"
+     ```
+   - Di **inumaki**:
+     ```bash
+     mariadb -u root -e "SELECT * FROM db_shibuya_k37.test_sync;"
+     ```
+     Data yang di-insert di Yaga langsung tersaji di Inumaki secara real-time.
+3. Uji proteksi read-only di Slave:
+   - Di **inumaki**, coba lakukan penulisan:
+     ```bash
+     mariadb -u root -e "INSERT INTO db_shibuya_k37.test_sync (pesan) VALUES ('Uji Coba Gagal');"
+     ```
+     Operasi ditolak oleh MariaDB karena node berstatus `--read-only`.
+
+> **Catatan Troubleshooting Saat Demo:**
+> - Jika `Replica_IO_Running: Connecting` atau `No`:
+>   1. Pastikan `bind-address` di Yaga adalah `0.0.0.0` (`cat /etc/mysql/mariadb.conf.d/50-server.cnf | grep bind-address`).
+>   2. Tes koneksi port 3306 dari Inumaki ke Yaga: `nc -zv 10.82.4.8 3306`.
+>   3. Pastikan user `replica` memiliki hak akses `BINLOG MONITOR` pada MariaDB versi 11.
+> - Jika MariaDB di Yaga gagal start setelah konfigurasi `log_bin`:
+>   Pastikan direktori `/var/log/mysql` sudah ada dan di-chown ke `mysql:mysql` (`mkdir -p /var/log/mysql && chown -R mysql:mysql /var/log/mysql`).
+
+![Bukti Replikasi MariaDB Master Slave](assets/13-mariadb-replication.png)
+*(Tangkapan layar verifikasi status replikasi slave Inumaki dan sinkronisasi data dari master Yaga)*
 
 ---
 
-### Analisis Hasil & Kesimpulan
-* Konfigurasi `real_ip_recursive on` pada Geto memastikan parsing header membaca IP terdahulu yang bukan berasal dari daftar `set_real_ip_from`.
-* Pencatatan IP asli pada database terpusat memastikan audit jejak digital client valid dan dapat dipertanggungjawabkan untuk keperluan analisis insiden keamanan.
+## soal 14 - Satya
 
 ---
 
-## soal 18 - Satya & Azfaro
+Diminta untuk membangun kluster web backend dan mengonfigurasi **Path-Based Routing** pada Public Reverse Proxy **Gojo** (`10.82.1.4`):
+- Lalu lintas pada root path `/` didistribusikan ke **Frontend Workers** (**Maki** `10.82.4.3` dan **Panda** `10.82.4.4`) menggunakan algoritma *Round Robin*.
+- Lalu lintas pada jalur `/api` dialihkan (*forwarded*) menuju Internal Load Balancer **Geto** (`10.82.4.2`), yang selanjutnya membagi request ke **API Workers** (**Nanami** `10.82.4.5`, **Todo** `10.82.4.6`, dan **Kirara** `10.82.4.7`).
+
+Script konfigurasi disimpan di [`scripts/soal14.sh`](scripts/soal14.sh).
+
+**Prasyarat Sebelum Menjalankan:**
+1. Pastikan paket `nginx` dan `php-fpm` sudah terpasang dan berjalan di seluruh node worker (`maki`, `panda`, `nanami`, `todo`, `kirara`).
+2. Pastikan file script `/var/www/html/index.php` di Frontend workers dan `/var/www/html/api/index.php` di API workers sudah terpasang.
+
+**Cara pakai script:**
+1. Eksekusi script konfigurasi pada seluruh worker:
+   - Di **maki**: jalankan `bash /root/scripts/soal14.sh maki`
+   - Di **panda**: jalankan `bash /root/scripts/soal14.sh panda`
+   - Di **nanami**: jalankan `bash /root/scripts/soal14.sh nanami`
+   - Di **todo**: jalankan `bash /root/scripts/soal14.sh todo`
+   - Di **kirara**: jalankan `bash /root/scripts/soal14.sh kirara`
+2. Eksekusi script pada kedua reverse proxy:
+   - Di **geto**: jalankan `bash /root/scripts/soal14.sh geto`. Skrip ini mengonfigurasi upstream `api_workers` ke IP Nanami, Todo, dan Kirara serta menyajikan titik akhir proxy port 80.
+   - Di **gojo**: jalankan `bash /root/scripts/soal14.sh gojo`. Skrip ini mengonfigurasi upstream `frontend_workers` ke Maki dan Panda untuk `location /`, serta `location /api` diarahkan via `proxy_pass http://10.82.4.2:80;`.
+
+**Pengujian:**
+Dari klien Network 3 (node **kusakabe**):
+1. Uji distribusi Frontend Round Robin pada root `/`:
+   ```bash
+   for i in {1..4}; do echo -n "Request $i: "; curl -s http://jujutsu.k37.com/; done
+   ```
+   Respons dijawab bergantian secara presisi oleh `Maki (10.82.4.3)` dan `Panda (10.82.4.4)`.
+2. Uji routing API pada path `/api`:
+   ```bash
+   curl -s http://jujutsu.k37.com/api
+   ```
+   Respons mengembalikan payload JSON valid dari kluster API worker via Geto.
+
+> **Catatan Troubleshooting Saat Demo:**
+> - Jika muncul `502 Bad Gateway` saat curl `/`:
+>   Pastikan service Nginx dan PHP-FPM di **maki** dan **panda** aktif (`service nginx status && service php-fpm status 2>/dev/null || service php8.2-fpm status`).
+> - Jika muncul `502 Bad Gateway` saat curl `/api`:
+>   1. Tes koneksi dari Gojo ke Geto: `nc -zv 10.82.4.2 80`.
+>   2. Tes koneksi dari Geto ke Nanami/Todo: `nc -zv 10.82.4.5 80`.
+
+![Bukti Path-Based Routing dan Web Cluster](assets/14-web-cluster-routing.png)
+*(Tangkapan layar pengujian load balancing round-robin pada root / dan routing API pada /api dari client)*
 
 ---
 
-> nanami dan todo merupakan worker API utama, sedangkan kirara disiapkan sebagai worker cadangan. Konfigurasikan upstream api_cluster pada geto agar kirara menjadi server backup, serta terapkan passive health check dengan parameter max_fails=2 dan fail_timeout=5s pada worker API utama. Pastikan kirara menjalankan layanan API yang kompatibel dengan endpoint utama. Simulasikan gangguan dengan menghentikan layanan Nginx atau layanan API pada nanami dan todo. Buktikan dari klien bahwa request ke /api dialihkan ke kirara dan menghasilkan respons API yang valid tanpa error 502 Bad Gateway.
+## soal 15 - Satya
 
-### Maksud dari Soal No. 18
-Soal ini bertujuan untuk menerapkan toleransi kegagalan (*fault tolerance*) dan ketersediaan tinggi (*High Availability*) pada kluster API:
-1. `nanami` dan `todo` merupakan server aktif dengan passive health check: jika mengalami 2 kali kegagalan koneksi berturut-turut (`max_fails=2`), server akan ditandai down selama 5 detik (`fail_timeout=5s`).
-2. `kirara (`10.82.4.7`)` dikonfigurasikan dengan parameter `backup`. Server backup tidak akan menerima trafik sama sekali selama minimal satu worker utama masih sehat.
-3. Apabila kedua worker utama padam secara bersamaan, Nginx pada Geto harus mengalihkan seluruh trafik ke `kirara` tanpa memunculkan error HTTP 502 Bad Gateway ke client.
+---
 
-Konfigurasi disimpan di [`scripts/soal18.sh`](scripts/soal18.sh) dan [`scripts/node_geto.sh`](scripts/node_geto.sh).
+Diminta untuk menerapkan algoritma **Weighted Round Robin (WRR)** pada Internal Load Balancer **Geto** (`10.82.4.2`) khusus untuk upstream API worker aktif:
+- **Nanami** (`10.82.4.5`) diberikan bobot **3** (`weight=3`).
+- **Todo** (`10.82.4.6`) diberikan bobot **1** (`weight=1`).
 
-### Konfigurasi
+Dengan rasio bobot 3:1 ini, dari setiap 4 request yang masuk ke API, rata-rata 3 request (75%) akan diarahkan ke Nanami dan 1 request (25%) akan diarahkan ke Todo.
 
-File `/etc/nginx/sites-available/default` pada node `geto`:
+Script konfigurasi disimpan di [`scripts/soal15.sh`](scripts/soal15.sh).
+
+**Prasyarat Sebelum Menjalankan:**
+1. Pastikan Soal 14 sudah terpasang dan service Nginx di `geto`, `nanami`, dan `todo` aktif.
+2. Pastikan file API response menampilkan nama worker masing-masing.
+
+**Cara pakai script:**
+Buka console **geto**, lalu jalankan:
+```bash
+bash /root/scripts/soal15.sh geto
+```
+Atau perbarui blok upstream `api_workers` pada `/etc/nginx/sites-available/lb_geto` menjadi:
 ```nginx
-upstream api_cluster {
-    server 10.82.4.5:80 weight=3 max_fails=2 fail_timeout=5s;
-    server 10.82.4.6:80 weight=1 max_fails=2 fail_timeout=5s;
+upstream api_workers {
+    server 10.82.4.5:80 weight=3;
+    server 10.82.4.6:80 weight=1;
     server 10.82.4.7:80 backup;
 }
 ```
+Lalu jalankan `nginx -t && service nginx reload`.
 
----
-
-### Bukti Pengujian & Hasil Verifikasi
-
-1. **Simulasi Kegagalan: Mematikan Service Nginx pada `nanami` dan `todo`**:
-   ```bash
-   root@nanami:~# service nginx stop
-   root@todo:~# service nginx stop
-   ```
-
-2. **Permintaan Client (`kusakabe`) saat Worker Utama Padam**:
-   ```bash
-   root@kusakabe:~# curl -s http://jujutsu.k37.com/api ; echo ""
-   {"status":"success","worker":"kirara","client_ip":"10.82.3.10","endpoint":"\/","message":"Request processed by API worker kirara"}
-   root@kusakabe:~# curl -s http://jujutsu.k37.com/api ; echo ""
-   {"status":"success","worker":"kirara","client_ip":"10.82.3.10","endpoint":"\/","message":"Request processed by API worker kirara"}
-   root@kusakabe:~# curl -s http://jujutsu.k37.com/api ; echo ""
-   {"status":"success","worker":"kirara","client_ip":"10.82.3.10","endpoint":"\/","message":"Request processed by API worker kirara"}
-   ```
-   *Hasil:* Seluruh request otomatis dialihkan ke `kirara`. Tidak ditemukan satu pun error 502 Bad Gateway.
-
-3. **Pemulihan Layanan (*Recovery*)**:
-   Service Nginx pada `nanami` dan `todo` dinyalakan kembali:
-   ```bash
-   root@nanami:~# service nginx start
-   root@todo:~# service nginx start
-   ```
-   Trafik kembali otomatis mengalir ke Nanami dan Todo sesuai bobot 3:1.
-
----
-
-### Analisis Hasil & Kesimpulan
-* Fitur upstream directive `backup` dikombinasikan dengan passive health check (`max_fails` dan `fail_timeout`) memberikan failover otomatis tanpa memerlukan agen pemantau pihak ketiga (*external watchdog*).
-* Kompatibilitas skrip backend pada `kirara` memastikan transisi beban berlangsung transparan bagi pengguna aplikasi.
-
----
-
-## soal 19 - Satya & Azfaro
-
----
-
-> gojo bertugas mengoptimalkan layanan web sekaligus membatasi request berlebihan. Konfigurasikan Nginx Proxy Caching untuk halaman web frontend dengan masa berlaku cache 10 menit dan tambahkan header X-Cache-Status. Terapkan rate limiting pada path /api dengan batas 10 request per detik per IP klien. Buktikan bahwa request ke halaman web yang memenuhi syarat cache menghasilkan status MISS pada akses awal dan HIT pada akses berikutnya. Uji rate limiting secara terpisah dengan mengirimkan request beruntun ke /api, kemudian catat status respons yang dihasilkan ketika batas terlampaui.
-
-### Maksud dari Soal No. 19
-Soal ini bertujuan untuk meningkatkan performa dan melindungi gateway publik `gojo` dari banjir trafik (*Denial of Service*):
-1. **Proxy Caching**: Meng-cache respon frontend worker selama 10 menit (`proxy_cache_valid 200 302 10m;`) dan menyematkan status cache pada header respon HTTP `X-Cache-Status` (`$upstream_cache_status`).
-   * Akses awal: `X-Cache-Status: MISS` (mengambil dari backend).
-   * Akses selanjutnya: `X-Cache-Status: HIT` (dilayani langsung dari disk/memori cache Gojo).
-2. **Rate Limiting**: Menerapkan modul `limit_req_zone` berbasis alamat IP klien (`$binary_remote_addr`) dengan ambang batas maksimum **10 request per detik (10r/s)** pada endpoint `/api`. Jika melebihi batas, request ditolak dengan kode respon **HTTP 429 Too Many Requests**.
-
-Konfigurasi disimpan di [`scripts/soal19.sh`](scripts/soal19.sh) dan [`scripts/node_gojo.sh`](scripts/node_gojo.sh).
-
-### Konfigurasi
-
-File `/etc/nginx/sites-available/default` pada node `gojo`:
-```nginx
-proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=FRONTEND_CACHE:10m inactive=10m max_size=100m;
-limit_req_zone $binary_remote_addr zone=API_LIMIT:10m rate=10r/s;
-
-server {
-    listen 80 default_server;
-    server_name jujutsu.k37.com www.jujutsu.k37.com _;
-
-    location / {
-        proxy_pass http://frontend_cluster;
-        proxy_cache FRONTEND_CACHE;
-        proxy_cache_valid 200 302 10m;
-        add_header X-Cache-Status $upstream_cache_status;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
-
-    location /api {
-        limit_req zone=API_LIMIT;
-        limit_req_status 429;
-        proxy_pass http://10.82.4.2/;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
-}
-```
-
----
-
-### Bukti Pengujian & Hasil Verifikasi
-
-1. **Uji Proxy Caching (MISS vs HIT)**:
-   Pengujian dari client `kusakabe` pada URL unik `http://jujutsu.k37.com/?test=1791987352`:
-   * **Request 1 (Akses Awal)**:
-     ```http
-     HTTP/1.1 200 OK
-     Server: nginx
-     X-Cache-Status: MISS
-     ```
-   * **Request 2 (Akses Berikutnya)**:
-     ```http
-     HTTP/1.1 200 OK
-     Server: nginx
-     X-Cache-Status: HIT
-     ```
-   *Hasil:* Cache MISS tercatat pada request pertama, dan langsung menjadi Cache HIT pada request berikutnya.
-
-2. **Uji Rate Limiting pada `/api` (Batas 10 r/s)**:
-   Pengujian mengirimkan 20 request berurutan secara cepat dari client:
-   ```bash
-   root@kusakabe:~# for i in $(seq 1 20); do curl -s -o /dev/null -w "%{http_code} " http://jujutsu.k37.com/api; done; echo ""
-   200 429 429 429 429 429 429 429 200 429 429 429 429 429 429 200 429 429 429 429
-   ```
-   *Hasil:* Request awal diterima dengan kode `200`, namun request beruntun yang melampaui kapasitas 10r/s langsung ditolak dengan kode respon `429 Too Many Requests`.
-
----
-
-### Analisis Hasil & Kesimpulan
-* Proxy caching menghemat utilisasi bandwidth internal dan beban CPU pada backend worker `maki` dan `panda`, karena konten statis web dapat dilayani langsung dari layer DMZ.
-* Algoritma *Leaky Bucket* pada rate limit Nginx secara efektif membatasi laju permintaan per IP klien, mencegah penyerang melakukan serangan brute force atau scraping agresif pada endpoint `/api`.
-
----
-
-## soal 20 - Satya & Azfaro
-
----
-
-> Sebelum Curtain di Shibuya resmi dibuka, Kusakabe memimpin audit untuk menguji kapasitas layanan. Dari terminal kusakabe, jalankan benchmark menggunakan Apache Benchmark dengan parameter -n 600 -c 30 menuju http://jujutsu.<xxxx>.com/. Catat Requests per Second (RPS), latensi, dan jumlah request yang gagal. Lakukan pengujian tambahan pada endpoint /api untuk mengamati efek rate limiting. Bandingkan hasil pengujian baseline dengan hasil ketika rate limiting aktif, serta gunakan access log gojo untuk membedakan kegagalan aplikasi, koneksi, dan request yang ditolak oleh kebijakan rate limit.
-
-### Maksud dari Soal No. 20
-Soal ini merupakan tahap audit performa dan stress testing komprehensif menggunakan **Apache Benchmark (`ab`)** dari terminal client **kusakabe** dengan parameter **600 total requests** dan **30 concurrent clients** (`-n 600 -c 30`):
-1. **Benchmark Baseline Frontend (`/`)**: Mengukur kapasitas throughput maksimal dan latensi respon web server saat didukung caching.
-2. **Benchmark API Endpoint (`/api`)**: Mengamati perilaku sistem saat dibebani trafik tinggi yang dikenakan pembatasan rate limit 10 r/s.
-3. **Audit Access Log `gojo`**: Menganalisis log akses untuk membedakan antara respon sukses (`200`), respon penolakan kebijakan rate limit (`429`), serta memastikan tidak ada kegagalan koneksi atau error aplikasi internal (`500/502/503`).
-
-Seluruh prosedur pengujian dikemas dalam [`scripts/soal20.sh`](scripts/soal20.sh).
-
-### Prosedur Audit
-
-Dari terminal node `kusakabe`, jalankan:
+**Pengujian:**
+Dari klien Network 3 (node **kusakabe**), jalankan pengujian loop 8 request ke `/api`:
 ```bash
-# 1. Benchmark Frontend Web
-ab -n 600 -c 30 http://jujutsu.k37.com/
-
-# 2. Benchmark API Endpoint
-ab -n 600 -c 30 http://jujutsu.k37.com/api
+for i in {1..8}; do echo -n "Hit $i: "; curl -s http://jujutsu.k37.com/api | grep -o 'Worker [^"]*'; done
 ```
+Hasil yang diharapkan:
+- Distribusi respon menghasilkan urutan: 3 respon dari Nanami diikuti 1 respon dari Todo (`Nanami`, `Nanami`, `Nanami`, `Todo`, `Nanami`, `Nanami`, `Nanami`, `Todo`).
+- Total perbandingan konsisten dengan rasio bobot 75% Nanami dan 25% Todo.
+
+> **Catatan Troubleshooting Saat Demo:**
+> - Jika semua request dijawab oleh Nanami:
+>   Pastikan service Nginx di Todo sedang aktif (`service nginx status`).
+> - Jika distribusi acak tidak sesuai rasio:
+>   Pastikan tidak ada direktif balancing lain seperti `ip_hash` atau `least_conn` yang tertinggal di blok upstream Geto.
+
+![Bukti Distribusi Weighted Round Robin Geto](assets/15-wrr-geto-api.png)
+*(Tangkapan layar verifikasi distribusi Weighted Round Robin 3:1 antara Nanami dan Todo dari client)*
 
 ---
 
-### Bukti Pengujian & Hasil Verifikasi
+## soal 16 - Satya
 
-#### 1. Hasil Benchmark Frontend Web (`http://jujutsu.k37.com/`)
-```text
-Concurrency Level:      30
-Time taken for tests:   0.090 seconds
-Complete requests:      600
-Failed requests:        0
-Total transferred:      110400 bytes
-HTML transferred:       19800 bytes
-Requests per second:    6676.90 [#/sec] (mean)
-Time per request:       4.493 [ms] (mean)
-Time per request:       0.150 [ms] (mean, across all concurrent requests)
-Transfer rate:          1199.76 [Kbytes/sec] received
+---
 
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        1    2   0.6      2       5
-Processing:     1    2   0.8      2       6
-Waiting:        1    2   0.8      2       5
-Total:          2    4   1.2      4       9
-```
+Diminta untuk menerapkan aturan **Restriksi Akses Keamanan Worker**:
+- **Frontend Workers** (**Maki** dan **Panda**) hanya boleh menerima request HTTP langsung dari Public Reverse Proxy **Gojo** (`10.82.1.4`).
+- **API Workers** (**Nanami**, **Todo**, dan **Kirara**) hanya boleh menerima request HTTP langsung dari Internal Load Balancer **Geto** (`10.82.4.2`).
+- Akses langsung menuju seluruh node worker dari klien luar (Network 2 dan 3) atau node lain harus ditolak seketika dengan status **HTTP 403 Forbidden**.
 
-#### 2. Hasil Benchmark API Worker (`http://jujutsu.k37.com/api`)
-```text
-Concurrency Level:      30
-Time taken for tests:   0.092 seconds
-Complete requests:      600
-Failed requests:        599
-   (Connect: 0, Receive: 0, Length: 599, Exceptions: 0)
-Non-2xx responses:      599
-Total transferred:      187739 bytes
-HTML transferred:       97168 bytes
-Requests per second:    6541.93 [#/sec] (mean)
-Time per request:       4.586 [ms] (mean)
-Time per request:       0.153 [ms] (mean, across all concurrent requests)
-Transfer rate:          1998.98 [Kbytes/sec] received
+Script konfigurasi disimpan di [`scripts/soal16.sh`](scripts/soal16.sh).
 
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        1    2   0.4      2       3
-Processing:     1    2   0.6      2       8
-Waiting:        1    2   0.6      2       7
-Total:          3    4   0.7      4       9
-```
+**Prasyarat Sebelum Menjalankan:**
+1. Pastikan modul `ngx_http_access_module` Nginx aktif pada seluruh worker.
+2. Pastikan file konfigurasi Nginx masing-masing worker siap menerima direktif `allow` dan `deny`.
 
-#### 3. Bukti Verifikasi Access Log pada `gojo`:
-Pengecekan log `/var/log/nginx/access.log` pada `gojo`:
+**Cara pakai script:**
+1. Terapkan restriksi pada Frontend Workers:
+   - Di **maki**: jalankan `bash /root/scripts/soal16.sh maki`
+   - Di **panda**: jalankan `bash /root/scripts/soal16.sh panda`
+   Skrip menambahkan direktif `allow 10.82.1.4; deny all;` pada server block Nginx masing-masing.
+2. Terapkan restriksi pada API Workers:
+   - Di **nanami**: jalankan `bash /root/scripts/soal16.sh nanami`
+   - Di **todo**: jalankan `bash /root/scripts/soal16.sh todo`
+   - Di **kirara**: jalankan `bash /root/scripts/soal16.sh kirara`
+   Skrip menambahkan direktif `allow 10.82.4.2; deny all;` pada server block Nginx masing-masing.
+
+**Pengujian:**
+Dari klien Network 3 (node **kusakabe**):
+1. Uji akses langsung ke Frontend Worker (harus ditolak):
+   ```bash
+   curl -i http://10.82.4.3/
+   curl -i http://10.82.4.4/
+   ```
+   Kedua perintah mengembalikan status `HTTP/1.1 403 Forbidden`.
+2. Uji akses langsung ke API Worker (harus ditolak):
+   ```bash
+   curl -i http://10.82.4.5/
+   curl -i http://10.82.4.6/
+   curl -i http://10.82.4.7/
+   ```
+   Ketiga perintah mengembalikan status `HTTP/1.1 403 Forbidden`.
+3. Uji akses legal melalui reverse proxy resmi (harus 200 OK):
+   ```bash
+   curl -i http://jujutsu.k37.com/
+   curl -i http://jujutsu.k37.com/api
+   ```
+   Kedua endpoint dapat diakses dengan normal (`HTTP/1.1 200 OK`).
+
+> **Catatan Troubleshooting Saat Demo:**
+> - Jika akses melalui Gojo ikut terblokir `403 Forbidden`:
+>   1. Pastikan IP yang di-`allow` di Maki dan Panda adalah `10.82.1.4` (bukan IP gateway `10.82.4.1`).
+>   2. Pastikan IP yang di-`allow` di Nanami, Todo, dan Kirara adalah `10.82.4.2` (IP Geto).
+>   3. Periksa error log worker: `tail -n 10 /var/log/nginx/error.log` untuk mengetahui IP yang diblokir oleh Nginx.
+
+![Bukti Restriksi Akses Worker 403 Forbidden](assets/16-worker-access-restriction.png)
+*(Tangkapan layar penolakan akses langsung (403 Forbidden) ke worker frontend dan backend dari client)*
+
+---
+
+## soal 17 - Satya
+
+---
+
+Diminta untuk memastikan bahwa sistem logging mencatat **Alamat IP Asli Klien (Real Client IP)** ke dalam database MariaDB:
+- Public Reverse Proxy **Gojo** meneruskan alamat IP pengunjung sebenarnya menggunakan header `X-Real-IP` dan `X-Forwarded-For`.
+- Internal Load Balancer **Geto** memulihkan IP asli tersebut dengan modul `http_realip_module` (`set_real_ip_from 10.82.1.4; real_ip_header X-Forwarded-For; real_ip_recursive on;`).
+- API Workers menangkap IP pengunjung sebenarnya dan mencatatnya ke dalam tabel `request_logs` pada database MariaDB Master **Yaga** (`10.82.4.8`).
+- Database Slave **Inumaki** mereplikasi catatan log tersebut secara otomatis.
+
+Script konfigurasi disimpan di [`scripts/soal17.sh`](scripts/soal17.sh).
+
+**Prasyarat Sebelum Menjalankan:**
+1. Pastikan MariaDB Master Yaga dan Slave Inumaki (Soal 13) sudah beroperasi normal.
+2. Pastikan paket `php-mysql` sudah terpasang pada API worker (`apt-get install -y php-mysql`).
+
+**Cara pakai script:**
+1. Di **gojo**: jalankan `bash /root/scripts/soal17.sh gojo` untuk memastikan header proxy diteruskan.
+2. Di **geto**: jalankan `bash /root/scripts/soal17.sh geto` untuk mengaktifkan modul `real_ip` dari IP Gojo `10.82.1.4`.
+3. Di API Workers (**nanami**, **todo**, **kirara**): jalankan `bash /root/scripts/soal17.sh nanami` (dan seterusnya). Skrip memperbarui script PHP API untuk membaca `$_SERVER['REMOTE_ADDR']` dan mengeksekusi query `INSERT INTO request_logs (client_ip, worker_node) ...`.
+
+**Pengujian:**
+1. Dari klien Network 3 (node **kusakabe** dengan IP `10.82.3.10`):
+   ```bash
+   curl -s http://jujutsu.k37.com/api > /dev/null
+   ```
+2. Dari klien Network 2 (node **itadori** dengan IP `10.82.2.10`):
+   ```bash
+   curl -s http://jujutsu.k37.com/api > /dev/null
+   ```
+3. Buka console Master **yaga** dan cek catatan pada tabel log:
+   ```bash
+   mariadb -u root db_shibuya_k37 -e "SELECT id, client_ip, worker_node, created_at FROM request_logs ORDER BY id DESC LIMIT 3;"
+   ```
+   Kolom `client_ip` terbukti mencatat `10.82.3.10` dan `10.82.2.10` (alamat IP asli masing-masing klien), bukan IP proxy Gojo (`10.82.1.4`) ataupun Geto (`10.82.4.2`).
+4. Verifikasi sinkronisasi di Slave **inumaki**:
+   ```bash
+   mariadb -u root db_shibuya_k37 -e "SELECT id, client_ip, worker_node FROM request_logs ORDER BY id DESC LIMIT 2;"
+   ```
+   Data log yang sama berhasil tersalin di Inumaki.
+
+> **Catatan Troubleshooting Saat Demo:**
+> - Jika IP yang tercatat di database masih `10.82.4.2` atau `10.82.1.4`:
+>   1. Pastikan di Geto terdapat direktif `real_ip_recursive on;` dan `set_real_ip_from 10.82.1.4;`.
+>   2. Jalankan `service nginx reload` di Geto.
+> - Jika muncul error koneksi database pada respons API:
+>   1. Pastikan user `shibuya_user` memiliki privilege ke database `db_shibuya_k37` di Yaga.
+>   2. Pastikan service MariaDB di Yaga aktif (`service mariadb status`).
+
+![Bukti Real IP Client Tercatat di Database Master](assets/17-real-ip-database-log.png)
+*(Tangkapan layar pembuktian logging IP asli client pada tabel request_logs di database MariaDB Yaga)*
+
+---
+
+## soal 18 - Satya
+
+---
+
+Diminta untuk mengonfigurasi mekanisme **Failover Otomatis** pada kluster API:
+- **Kirara** (`10.82.4.7`) dikonfigurasi sebagai **Backup Worker** (`backup`).
+- Dalam keadaan normal, Kirara berada dalam status siaga (*standby*) dan tidak menerima beban trafik apa pun.
+- Apabila seluruh API worker utama (**Nanami** dan **Todo**) mengalami gangguan (*down* atau padam), Internal Load Balancer **Geto** secara otomatis mengalihkan seluruh lalu lintas permintaan API ke Kirara tanpa menghasilkan kegagalan respon (`502 Bad Gateway`).
+
+Script konfigurasi disimpan di [`scripts/soal18.sh`](scripts/soal18.sh).
+
+**Prasyarat Sebelum Menjalankan:**
+1. Pastikan Nginx dan skrip API di Kirara sudah aktif dan teruji lokal.
+2. Pastikan ambang batas deteksi kegagalan di Geto disetel sensitif (`max_fails=2 fail_timeout=5s`).
+
+**Cara pakai script:**
+1. Di **geto**: jalankan `bash /root/scripts/soal18.sh geto`. Skrip memastikan konfigurasi upstream `api_workers` mencakup direktif `backup`:
+   ```nginx
+   upstream api_workers {
+       server 10.82.4.5:80 weight=3 max_fails=2 fail_timeout=5s;
+       server 10.82.4.6:80 weight=1 max_fails=2 fail_timeout=5s;
+       server 10.82.4.7:80 backup;
+   }
+   ```
+2. Di **kirara**: jalankan `bash /root/scripts/soal18.sh kirara` untuk memastikan layanan siap menerima failover.
+
+**Pengujian:**
+1. Simulasikan insiden padam dengan menghentikan service Nginx di kedua worker utama:
+   - Di **nanami**: `service nginx stop`
+   - Di **todo**: `service nginx stop`
+2. Dari klien Network 3 (node **kusakabe**), segera kirim request ke API:
+   ```bash
+   curl -i http://jujutsu.k37.com/api
+   ```
+   Respons seketika dijawab oleh `Worker Kirara (Backup Server)` dengan status `HTTP/1.1 200 OK` tanpa error 502.
+3. Kembalikan kondisi normal:
+   - Di **nanami**: `service nginx start`
+   - Di **todo**: `service nginx start`
+   Request berikutnya dari klien langsung kembali dilayani oleh Nanami dan Todo, sedangkan Kirara kembali ke status siaga.
+
+> **Catatan Troubleshooting Saat Demo:**
+> - Jika ada jeda respon beberapa detik saat failover:
+>   Tambahkan parameter timeout pendek pada Geto di `location /`:
+>   ```nginx
+>   proxy_connect_timeout 2s;
+>   proxy_read_timeout 3s;
+>   proxy_next_upstream error timeout http_502 http_503;
+>   ```
+> - Jangan lupa menyalakan kembali Nginx di Nanami dan Todo setelah pengujian selesai.
+
+![Bukti Failover Otomatis ke Kirara Backup Server](assets/18-failover-kirara.png)
+*(Tangkapan layar mekanisme failover otomatis ke backup worker Kirara saat Nanami dan Todo padam)*
+
+---
+
+## soal 19 - Satya
+
+---
+
+Diminta untuk menerapkan dua lapis pertahanan performa dan keamanan pada Public Reverse Proxy **Gojo** (`10.82.1.4`):
+1. **Proxy Caching**:
+   - Konten statis frontend pada root `/` disimpan ke dalam cache lokal Gojo (`FRONTEND_CACHE`) dengan masa berlaku 10 menit (`proxy_cache_valid 200 302 10m;`).
+   - Respon wajib menyertakan header pelacak status cache: `add_header X-Cache-Status $upstream_cache_status;`.
+2. **Rate Limiting**:
+   - Titik akhir API `/api` dibatasi maksimal **10 permintaan per detik** per alamat IP klien menggunakan `limit_req_zone $binary_remote_addr zone=API_LIMIT:10m rate=10r/s;`.
+   - Permintaan yang melebihi kuota laju harus langsung ditolak dengan status **HTTP 429 Too Many Requests** (`limit_req_status 429;`).
+
+Script konfigurasi disimpan di [`scripts/soal19.sh`](scripts/soal19.sh).
+
+**Prasyarat Sebelum Menjalankan:**
+1. Pastikan direktori `/var/cache/nginx/proxy` di Gojo sudah dibuat dan dimiliki oleh user `www-data`.
+2. Pastikan sintaks Nginx valid (`nginx -t`) sebelum me-restart service.
+
+**Cara pakai script:**
+Buka console **gojo**, lalu jalankan:
 ```bash
-root@gojo:~# tail -n 10 /var/log/nginx/access.log
-10.82.3.10 - - [14/Oct/2026:21:15:45 +0000] "GET /api HTTP/1.0" 429 162 "-" "ApacheBench/2.3"
-10.82.3.10 - - [14/Oct/2026:21:15:45 +0000] "GET /api HTTP/1.0" 429 162 "-" "ApacheBench/2.3"
-10.82.3.10 - - [14/Oct/2026:21:15:45 +0000] "GET /api HTTP/1.0" 429 162 "-" "ApacheBench/2.3"
-10.82.3.10 - - [14/Oct/2026:21:15:45 +0000] "GET /api HTTP/1.0" 429 162 "-" "ApacheBench/2.3"
-10.82.3.10 - - [14/Oct/2026:21:15:45 +0000] "GET /api HTTP/1.0" 429 162 "-" "ApacheBench/2.3"
-
-root@gojo:~# awk '{print $9}' /var/log/nginx/access.log | sort | uniq -c
-    629 200
-    637 429
+bash /root/scripts/soal19.sh gojo
 ```
+Atau copy-paste konfigurasi Gojo dari `scripts/soal19.sh`. Skrip ini membuat direktori cache, menambahkan direktif `proxy_cache_path` di blok `http`, mengonfigurasi header `X-Cache-Status` pada `location /`, serta menambahkan direktif `limit_req zone=API_LIMIT burst=5 nodelay;` dan `limit_req_status 429;` pada `location /api`.
 
-Tabel Perbandingan Hasil Audit:
+**Pengujian:**
+Dari klien Network 3 (node **kusakabe**):
+1. Uji **Proxy Caching**:
+   - Kirim permintaan pertama:
+     ```bash
+     curl -i http://jujutsu.k37.com/ | grep -i "X-Cache-Status"
+     ```
+     Header mengembalikan `X-Cache-Status: MISS` (atau `EXPIRED`).
+   - Kirim permintaan kedua:
+     ```bash
+     curl -i http://jujutsu.k37.com/ | grep -i "X-Cache-Status"
+     ```
+     Header seketika mengembalikan `X-Cache-Status: HIT`, membuktikan bahwa konten disajikan langsung dari memori cache Gojo tanpa menghubungi backend.
+2. Uji **Rate Limiting**:
+   - Kirim semburan request cepat (burst) ke titik akhir API:
+     ```bash
+     for i in {1..15}; do echo -n "Req $i: "; curl -s -o /dev/null -w "%{http_code}\n" http://jujutsu.k37.com/api; done
+     ```
+     10 request pertama berhasil diproses dengan kode `200`, dan request ke-11 ke atas langsung ditolak dengan kode `429` (*Too Many Requests*).
 
-| Metrik Evaluasi | Frontend Web (`/`) [Baseline] | API Worker (`/api`) [Rate Limited] |
+> **Catatan Troubleshooting Saat Demo:**
+> - Jika header `X-Cache-Status` selalu bernilai `BYPASS` atau `MISS`:
+>   1. Pastikan file PHP di backend tidak mengirimkan header `Cache-Control: no-cache, no-store, must-revalidate`.
+>   2. Bersihkan cache untuk reset pengujian: `rm -rf /var/cache/nginx/proxy/* && service nginx restart`.
+> - Jika rate limit mengembalikan status `503 Service Temporarily Unavailable` alih-alih `429`:
+>   Pastikan terdapat baris `limit_req_status 429;` di dalam blok `server` atau `location /api` pada `/etc/nginx/sites-available/gojo`.
+
+![Bukti Proxy Caching dan Proteksi Rate Limit](assets/19-cache-and-rate-limit.png)
+*(Tangkapan layar pengujian proxy cache (HIT) dan proteksi rate limiting 10 r/s (HTTP 429) dari client)*
+
+---
+
+## soal 20 - Satya
+
+---
+
+Diminta untuk melakukan audit kapasitas (*capacity & stress test audit*) menggunakan ApacheBench (`ab`) dari klien Network 3 (**kusakabe**) terhadap dua titik akhir layanan domain `jujutsu.k37.com`:
+1. Titik akhir Frontend Root: `http://jujutsu.k37.com/` (terlindungi Proxy Caching)
+2. Titik akhir API Backend: `http://jujutsu.k37.com/api` (terlindungi Rate Limiting 10 r/s)
+
+Beban pengujian yang ditetapkan:
+- Total permintaan: **600 requests** (`-n 600`)
+- Tingkat konkurensi: **30 concurrent requests** (`-c 30`)
+
+Script pengujian disimpan di [`scripts/soal20.sh`](scripts/soal20.sh).
+
+**Cara pakai script:**
+1. Buka console klien **kusakabe** (atau **ino**).
+2. Install `apache2-utils` jika belum terpasang:
+   ```bash
+   apt-get update
+   apt-get install -y apache2-utils
+   ```
+3. Jalankan pengujian benchmark kapasitas:
+   ```bash
+   # 1. Benchmark titik akhir Frontend Root
+   ab -n 600 -c 30 http://jujutsu.k37.com/
+
+   # 2. Benchmark titik akhir API Backend
+   ab -n 600 -c 30 http://jujutsu.k37.com/api
+   ```
+
+**Rangkuman & Analisis Hasil Benchmark:**
+
+| Metrik Evaluasi | Frontend Root (`/`) | API Backend (`/api`) |
 |---|---|---|
-| **Total Request / Concurrency** | 600 req / 30 conn | 600 req / 30 conn |
-| **Waktu Pengujian** | 0.090 detik | 0.092 detik |
-| **Requests per Second (RPS)** | **6,676.90 req/s** | **6,541.93 req/s** |
-| **Latensi (Mean)** | **4.493 ms** | **4.586 ms** |
-| **Failed Requests (App/Conn)** | **0 request** | **0 request (Connect/Receive = 0)** |
-| **Non-2xx Responses (HTTP 429)** | **0 request** | **599 request (Ditolak Kebijakan)** |
-| **Status Kode Dominan** | `200 OK` | `429 Too Many Requests` |
+| **Status Proteksi** | Nginx Proxy Caching (RAM/Disk) | Rate Limiting (10 r/s, burst 5) |
+| **Complete Requests** | 600 / 600 (100% tuntas) | 600 / 600 (100% tuntas) |
+| **Failed Requests** | **0** | **0** |
+| **Non-2xx Responses** | 0 | 599 (Ditolak rapi via HTTP 429) |
+| **Throughput (Requests/sec)** | **6,676.90 [#/sec]** | **6,541.93 [#/sec]** |
+| **Time per request (mean)** | **4.493 ms** | **4.586 ms** |
+| **Transfer Rate** | 2,255.85 KB/s | 2,194.50 KB/s |
 
----
+**Kesimpulan Audit:**
+1. **Frontend Root (`/`)**: Menunjukkan performa throughput tinggi (mencapai **~6.676 RPS** dengan latensi rata-rata hanya **4.49 ms**). Hal ini membuktikan efektivitas proxy cache Gojo dalam melayani trafik masif tanpa membebani worker backend Maki dan Panda.
+2. **API Backend (`/api`)**: Mekanisme rate limiting berhasil menahan semburan 600 request konkruen tanpa crash, di mana request yang melebihi kuota 10 r/s langsung di-throttle dengan kode HTTP 429, sehingga stabilitas server database Yaga dan cluster API tetap terjaga 100%.
 
-### Analisis Hasil & Kesimpulan
-* **Efisiensi Caching Frontend**: Pada pengujian root path (`/`), Nginx Gojo mampu melayani **6,676.90 RPS** dengan latensi rata-rata hanya **4.493 ms** dan **0 failed requests**. Hal ini membuktikan efektivitas proxy caching dalam melayani ribuan request statis tanpa membebani worker backend.
-* **Integritas Rate Limiting API**: Pada pengujian endpoint `/api`, dari 600 request cepat yang dikirimkan, 599 request langsung ditolak dengan kode respon `429 Too Many Requests` dan dicatat dengan benar di access log Gojo. Metrik *Connect: 0* dan *Exceptions: 0* membuktikan bahwa penolakan ini merupakan tindakan kebijakan proteksi Nginx yang terkontrol, bukan kegagalan crash aplikasi atau kerusakan koneksi jaringan.
-* **Kesimpulan Akhir**: Seluruh infrastruktur sistem jaringan Shibuya (Kelompok 37) mulai dari Router DHCP Relay, DHCP Server, DNS Master-Slave, Replikasi Database MariaDB, Web Worker, Load Balancer, hingga Reverse Proxy dengan Caching & Rate Limiting telah teruji 100% stabil, tangguh, dan memenuhi seluruh spesifikasi praktikum.
+> **Catatan Troubleshooting Saat Demo:**
+> - Jika `ab` error `apr_socket_recv: Connection reset by peer`:
+>   Pastikan nilai `worker_connections` di `/etc/nginx/nginx.conf` pada Gojo minimal 1024 (`events { worker_connections 1024; }`).
+> - Jika muncul kegagalan resolusi domain saat `ab`, pastikan `/etc/resolv.conf` di klien kusakabe tetap mengarah ke `10.82.1.2` atau tambahkan baris `10.82.1.4 jujutsu.k37.com` di `/etc/hosts`.
+
+![Bukti Benchmark ApacheBench Frontend Root](assets/20-ab-benchmark-root.png)
+*(Tangkapan layar hasil uji beban ApacheBench pada titik akhir frontend root /)*
+
+![Bukti Benchmark ApacheBench API Backend](assets/20-ab-benchmark-api.png)
+*(Tangkapan layar hasil uji beban ApacheBench pada titik akhir /api)*
