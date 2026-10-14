@@ -25,3 +25,4 @@ zone "1.82.10.in-addr.arpa" {
 EOF
 chown -R bind:bind /var/cache/bind
 service named restart
+

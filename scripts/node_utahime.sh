@@ -58,3 +58,4 @@ $TTL    604800
 4       IN      PTR     jujutsu.k37.com.
 EOF
 service named restart
+
