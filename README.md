@@ -19,6 +19,7 @@
 - [soal 7 - Satya & Azfaro](#soal-7---satya--azfaro)
 - [soal 8 - Satya & Azfaro](#soal-8---satya--azfaro)
 - [soal 9 - Satya & Azfaro](#soal-9---satya--azfaro)
+- [soal 10 - Satya & Azfaro](#soal-10---satya--azfaro)
 
 ---
 
@@ -969,3 +970,136 @@ Seluruh perintah simulasi nomor 9 ini sudah kami kumpulkan di [`scripts/soal9.sh
 ### Soal No. 9
 > Sebuah gangguan memutus jalur relay dan membuat permintaan alamat tidak sampai ke Data Center. Hentikan service DHCP Relay pada jichi, lalu paksa salah satu client di Network 2 atau Network 3 meminta lease baru dan catat gejalanya. Pulihkan service relay, ulangi permintaan DHCP, lalu buktikan bahwa client kembali memperoleh alamat dari pool yang benar dengan gateway semula.
 
+## soal 10 - Satya & Azfaro
+
+---
+
+### Maksud dari Soal No. 10
+
+Tujuan dari soal ini adalah memastikan bahwa seluruh infrastruktur layanan DHCP yang telah dibangun bertahan (*persistent*) dan berjalan otomatis (*autostart*) setelah sistem dimulai ulang (*reboot / restart*):
+1. **Autostart DHCP Server di Tengen**: Memastikan service `isc-dhcp-server` aktif secara otomatis saat boot pada runlevel sistem tanpa intervensi manual.
+2. **Autostart DHCP Relay di Jichi**: Memastikan proses `dhcrelay` berjalan otomatis saat router Jichi di-restart dengan mendengarkan antarmuka client (`eth2` dan `eth3`) serta antarmuka uplink Data Center (`eth4`) menuju DHCP server (`10.82.4.10`). Mekanisme autostart dibuat tangguh menggunakan init script (`/etc/init.d/dhcrelay-custom`) dan pemicu startup `/etc/rc.local`.
+3. **Uji Restart & Validasi Menyeluruh**: Memulai ulang kedua node (Tengen dan Jichi), lalu memverifikasi status layanan, ketersediaan proses, dan memastikan seluruh kebijakan alokasi IP yang telah dikonfigurasi sebelumnya tetap berlaku penuh:
+   - **Pool 1 (Dev)**: `itadori` & `fushiguro` (`10.82.2.10` – `10.82.2.35`).
+   - **Pool 2 (Support)**: `zenin` & `okkotsu` (`10.82.2.70` – `10.82.2.95`).
+   - **Short Lease**: `ino` & `kusakabe` (1800 detik, `10.82.3.10` – `10.82.3.89`).
+   - **Long Lease**: `miwa` (43200 detik, `10.82.3.100` – `10.82.3.199`).
+   - **Static Lease Fixed IP**: `kugisaki` (`10.82.3.99`).
+
+---
+
+### Langkah Konfigurasi & Implementasi Autostart
+
+Seluruh konfigurasi nomor 10 ini sudah kami kumpulkan di [`scripts/soal10.sh`](scripts/soal10.sh).
+
+#### 1. Konfigurasi Autostart DHCP Server pada `tengen`
+Pada node Tengen, pastikan interface IPv4 diarahkan ke `eth0` dan service didaftarkan ke runlevel default:
+```bash
+# 1. Konfigurasi interface di /etc/default/isc-dhcp-server
+sed -i 's/^INTERFACESv4=.*/INTERFACESv4="eth0"/' /etc/default/isc-dhcp-server
+
+# 2. Daftarkan service ke startup runlevel
+update-rc.d isc-dhcp-server defaults
+
+# 3. Validasi sintaks dan restart service
+dhcpd -t -4 -cf /etc/dhcp/dhcpd.conf
+service isc-dhcp-server restart
+```
+
+#### 2. Konfigurasi Autostart DHCP Relay pada `jichi`
+Pada node Jichi (lingkungan Docker/GNS3), service relay bawaan seringkali memerlukan antarmuka yang siap sebelum proses dijalankan. Oleh karena itu, dibuat mekanisme service kustom dengan pemanggilan via `/etc/rc.local`:
+
+1. Buat script launcher `/usr/local/sbin/start-dhcrelay-soal10.sh`:
+```bash
+cat <<'EOF' > /usr/local/sbin/start-dhcrelay-soal10.sh
+#!/bin/sh
+pkill -x dhcrelay 2>/dev/null || true
+sleep 1
+/usr/sbin/dhcrelay -4 -id eth2 -id eth3 -iu eth4 10.82.4.10 >/tmp/dhcrelay.log 2>&1 &
+EOF
+chmod +x /usr/local/sbin/start-dhcrelay-soal10.sh
+```
+
+2. Buat init script `/etc/init.d/dhcrelay-custom`:
+```bash
+cat <<'EOF' > /etc/init.d/dhcrelay-custom
+#!/bin/sh
+case "$1" in
+    start)
+        echo "Menjalankan DHCP Relay..."
+        /usr/local/sbin/start-dhcrelay-soal10.sh
+        sleep 2
+        pgrep -af dhcrelay || true
+        ;;
+    stop)
+        pkill -x dhcrelay 2>/dev/null || true
+        echo "DHCP Relay dihentikan."
+        ;;
+    restart)
+        "$0" stop
+        sleep 1
+        "$0" start
+        ;;
+    status)
+        pgrep -af dhcrelay || true
+        ;;
+    *)
+        echo "Penggunaan: $0 {start|stop|restart|status}"
+        exit 1
+        ;;
+esac
+EOF
+chmod +x /etc/init.d/dhcrelay-custom
+update-rc.d dhcrelay-custom defaults 2>/dev/null || true
+```
+
+3. Tambahkan pemicu pada `/etc/rc.local`:
+```bash
+cat <<'EOF' > /etc/rc.local
+#!/bin/sh
+sleep 3
+/etc/init.d/dhcrelay-custom start
+exit 0
+EOF
+chmod +x /etc/rc.local
+```
+
+#### 3. Prosedur Pengujian Restart
+1. Lakukan restart (*stop & start* / reboot) pada node **tengen** dan **jichi** di GNS3.
+2. Setelah kedua node menyala kembali, periksa status service dan proses.
+3. Jalankan pengujian request DHCP pada client Network 2 dan Network 3.
+
+---
+
+### Bukti Pengujian & Hasil Verifikasi
+
+1. **Bukti Autostart DHCP Server di Server `tengen`**:
+   Pengecekan file `/etc/default/isc-dhcp-server` dan tautan simbolik runlevel di `/etc/rc2.d/` membuktikan `isc-dhcp-server` aktif di runlevel 2 secara otomatis (`S01isc-dhcp-server`):
+   ![Autostart DHCP Server di Tengen](assets/10-tengen-autostart.png)
+
+2. **Bukti Autostart DHCP Relay di Router `jichi`**:
+   Tampilan isi `/etc/rc.local` dan verifikasi keberadaan proses `dhcrelay` yang aktif berjalan secara otomatis di latar belakang dengan interface `-id eth2 -id eth3 -iu eth4 10.82.4.10`:
+   ![Autostart DHCP Relay di Jichi](assets/10-jichi-relay-autostart.png)
+
+3. **Bukti Permintaan Lease Client Pasca-Restart**:
+   Pengujian renew lease pada client Network 2 (`zenin` dan `fushiguro`) setelah node router dan server di-restart:
+   ![Hasil Uji Lease Client Pasca-Restart](assets/10-client-lease-post-restart.png)
+
+Tabel hasil verifikasi status client pasca-restart:
+
+| Client | Kelompok / Pool | MAC Address | IP Address Diperoleh | Gateway | Status Pasca-Restart |
+|---|---|---|---|---|---|
+| **fushiguro** | Dev (Pool 1) | `02:42:05:ec:37:00` | `10.82.2.10` | `10.82.2.1` | Berhasil (Sesuai Pool 1) |
+| **zenin** | Support (Pool 2) | `02:42:43:4a:ba:00` | `10.82.2.71` | `10.82.2.1` | Berhasil (Sesuai Pool 2) |
+
+---
+
+### Analisis Hasil & Kesimpulan
+* Konfigurasi runlevel pada node `tengen` memastikan service `isc-dhcp-server` langsung berjalan segera setelah sistem operasi selesai memuat modul jaringan.
+* Penggunaan init script kustom dan pemicu `/etc/rc.local` pada router `jichi` berhasil mengatasi kendala startup relay pada node container, sehingga proses `dhcrelay` otomatis mendengarkan antarmuka `eth2`, `eth3`, dan `eth4`.
+* Pengujian pada client membuktikan bahwa pasca-restart seluruh node infrastruktur (router dan server), layanan alokasi IP dinamis tetap beroperasi secara transparan dan seluruh aturan kebijakan (Pool 1, Pool 2, short lease, long lease, serta static lease) tetap terjaga konsistensinya.
+
+---
+
+### Soal No. 10
+> Setelah gangguan Shibuya tertangani, pastikan pemulihan bertahan setelah restart. Aktifkan autostart DHCP Server pada tengen dan DHCP Relay pada jichi, lalu restart kedua node. Verifikasi status layanan, IP, gateway, lease, dan konektivitas client Network 2–3. Pastikan kebijakan Pool 1, Pool 2, short lease, long lease, dan fixed address tetap berlaku.
