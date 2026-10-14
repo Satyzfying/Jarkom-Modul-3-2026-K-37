@@ -1,7 +1,9 @@
 apt-get update
 apt-get install -y mariadb-server
 sed -i 's/^bind-address.*/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
-grep -q '^server-id' /etc/mysql/mariadb.conf.d/50-server.cnf || sed -i '/\[mysqld\]/a server-id = 2\nread_only = 1' /etc/mysql/mariadb.conf.d/50-server.cnf
+sed -i 's/^#server-id/server-id/' /etc/mysql/mariadb.conf.d/50-server.cnf
+sed -i 's/^server-id.*/server-id = 2/' /etc/mysql/mariadb.conf.d/50-server.cnf
+grep -q 'read_only' /etc/mysql/mariadb.conf.d/50-server.cnf || sed -i '/server-id = 2/a read_only = 1' /etc/mysql/mariadb.conf.d/50-server.cnf
 service mariadb restart
 mariadb -e "CREATE DATABASE IF NOT EXISTS db_shibuya_k37;"
 LOG_FILE=$(mariadb -h 10.82.4.8 -u replica -preplica_pass -N -e "SHOW MASTER STATUS;" | awk '{print $1}')
