@@ -17,6 +17,9 @@ server {
 
     location / {
         proxy_pass http://api_cluster;
+        proxy_connect_timeout 2s;
+        proxy_read_timeout 3s;
+        proxy_next_upstream error timeout http_502 http_503;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
