@@ -15,7 +15,7 @@ apt-get install -y isc-dhcp-relay
 # Interface client yang dilayani: eth2 (Network 2) dan eth3 (Network 3)
 cat <<'EOF' > /etc/default/isc-dhcp-relay
 SERVERS="10.82.4.10"
-INTERFACES="eth2 eth3"
+INTERFACES="eth2 eth3 eth4"
 OPTIONS=""
 EOF
 

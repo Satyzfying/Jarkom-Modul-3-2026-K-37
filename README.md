@@ -834,17 +834,17 @@ Tujuan dari soal ini adalah membuktikan keabsahan proses pemberian alamat IP din
 Seluruh instruksi pengujian nomor 8 ini sudah kami kumpulkan di [`scripts/soal8.sh`](scripts/soal8.sh).
 
 1. **Monitoring pada DHCP Server Tengen**:
-   Pantau log daemon dhcpd atau jalankan packet capture dengan tcpdump:
+   Pantau pertukaran paket DHCP dengan tcpdump:
    ```bash
-   tcpdump -i eth0 -n -vvv port 67 or port 68
-   # atau amati log aktivitas daemon:
-   tail -f /var/log/syslog | grep -E 'DHCPDISCOVER|DHCPOFFER|DHCPREQUEST|DHCPACK'
+   tcpdump -i eth0 -n -vvv "udp port 67 or udp port 68"
+   # atau amati log aktivitas daemon secara interaktif:
+   dhcpd -d -f eth0
    ```
 
 2. **Monitoring pada Router Jichi (DHCP Relay)**:
-   Jalankan `dhcrelay` secara foreground untuk melihat penanganan field `giaddr`:
+   Jalankan `dhcrelay` secara foreground (pastikan mencakup antarmuka client `eth2`, `eth3`, dan antarmuka server `eth4`) untuk melihat penanganan field `giaddr`:
    ```bash
-   dhcrelay -d -4 -i eth2 -i eth3 10.82.4.10
+   dhcrelay -d -4 -i eth2 -i eth3 -i eth4 10.82.4.10
    ```
 
 3. **Eksekusi Request Lease pada Client (Miwa)**:
@@ -929,8 +929,9 @@ Seluruh perintah simulasi nomor 9 ini sudah kami kumpulkan di [`scripts/soal9.sh
    ```
 
 #### Fase 2: Pemulihan Layanan (Relay Aktif Kembali)
-1. Pada console router **jichi**, jalankan kembali service DHCP Relay:
+1. Pada console router **jichi**, pastikan interface relay mencakup `eth4` lalu jalankan kembali service:
    ```bash
+   sed -i 's/INTERFACES=.*/INTERFACES="eth2 eth3 eth4"/' /etc/default/isc-dhcp-relay
    service isc-dhcp-relay start
    ```
 2. Pada console client **miwa**, ulangi permintaan lease:
@@ -1336,8 +1337,14 @@ Dari klien Network 3 (node **kusakabe**):
    Respons mengembalikan payload JSON valid dari kluster API worker via Geto.
 
 > **Catatan Troubleshooting Saat Demo:**
+> - Jika respon selalu Panda (atau Maki saja) secara berulang saat seluruh modul sudah terpasang:
+>   Hal ini normal karena fitur **Proxy Caching 10 menit** dari Soal 19 aktif di Gojo (`X-Cache-Status: HIT`). Untuk menguji Round Robin tanpa terhalang cache, gunakan header bypass:
+>   ```bash
+>   for i in {1..8}; do echo -n "Request $i: "; curl -s -H "Cache-Control: no-cache" http://jujutsu.k37.com/; done
+>   ```
+>   atau matikan sementara cache di Gojo (`sed -i 's/proxy_cache/#proxy_cache/' /etc/nginx/sites-available/default && service nginx reload`).
 > - Jika muncul `502 Bad Gateway` saat curl `/`:
->   Pastikan service Nginx dan PHP-FPM di **maki** dan **panda** aktif (`service nginx status && service php-fpm status 2>/dev/null || service php8.2-fpm status`).
+>   Pastikan service Nginx dan PHP-FPM di **maki** dan **panda** aktif (`service nginx status && service php-fpm status 2>/dev/null || service php8.4-fpm status`).
 > - Jika muncul `502 Bad Gateway` saat curl `/api`:
 >   1. Tes koneksi dari Gojo ke Geto: `nc -zv 10.82.4.2 80`.
 >   2. Tes koneksi dari Geto ke Nanami/Todo: `nc -zv 10.82.4.5 80`.
@@ -1368,9 +1375,9 @@ Buka console **geto**, lalu jalankan:
 ```bash
 bash /root/scripts/soal15.sh geto
 ```
-Atau perbarui blok upstream `api_workers` pada `/etc/nginx/sites-available/lb_geto` menjadi:
+Atau perbarui blok upstream `api_workers` pada `/etc/nginx/sites-available/default` menjadi:
 ```nginx
-upstream api_workers {
+upstream api_cluster {
     server 10.82.4.5:80 weight=3;
     server 10.82.4.6:80 weight=1;
     server 10.82.4.7:80 backup;
@@ -1379,15 +1386,27 @@ upstream api_workers {
 Lalu jalankan `nginx -t && service nginx reload`.
 
 **Pengujian:**
-Dari klien Network 3 (node **kusakabe**), jalankan pengujian loop 8 request ke `/api`:
+Dari klien Network 3 (node **kusakabe**), jalankan pengujian loop 8 request ke `/api` (dengan jeda 0.2 detik agar tidak terkena rate limit Soal 19):
 ```bash
-for i in {1..8}; do echo -n "Hit $i: "; curl -s http://jujutsu.k37.com/api | grep -o 'Worker [^"]*'; done
+for i in {1..8}; do echo -n "Hit $i: "; curl -s http://jujutsu.k37.com/api | grep -oE 'Nanami[^"]*|Todo[^"]*'; sleep 0.2; done
 ```
 Hasil yang diharapkan:
-- Distribusi respon menghasilkan urutan: 3 respon dari Nanami diikuti 1 respon dari Todo (`Nanami`, `Nanami`, `Nanami`, `Todo`, `Nanami`, `Nanami`, `Nanami`, `Todo`).
-- Total perbandingan konsisten dengan rasio bobot 75% Nanami dan 25% Todo.
+- Respon menampilkan pergantian worker berbobot: Nanami muncul rata-rata 3 kali untuk setiap 1 kali kemunculan Todo (rasio 3 : 1 / 75% vs 25%).
+- Contoh output:
+  ```text
+  Hit 1: Nanami (10.82.4.5)
+  Hit 2: Nanami (10.82.4.5)
+  Hit 3: Todo (10.82.4.6)
+  Hit 4: Nanami (10.82.4.5)
+  Hit 5: Nanami (10.82.4.5)
+  Hit 6: Nanami (10.82.4.5)
+  Hit 7: Todo (10.82.4.6)
+  Hit 8: Nanami (10.82.4.5)
+  ```
 
 > **Catatan Troubleshooting Saat Demo:**
+> - Jika output `grep` kosong (`Hit 1: Hit 2: ...`):
+>   Pastikan pola grep mencocokkan nama worker (`grep -oE 'Nanami[^"]*|Todo[^"]*'`) dan gunakan jeda `sleep 0.2` agar request tidak terpotong oleh status 429.
 > - Jika semua request dijawab oleh Nanami:
 >   Pastikan service Nginx di Todo sedang aktif (`service nginx status`).
 > - Jika distribusi acak tidak sesuai rasio:

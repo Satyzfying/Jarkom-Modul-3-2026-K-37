@@ -7,7 +7,7 @@
 
 # 1. PADA JICHI (Router & DHCP Relay)
 # Jalankan dhcrelay secara interaktif/debug untuk mengamati giaddr:
-# dhcrelay -d -4 -i eth2 -i eth3 10.82.4.10
+# dhcrelay -d -4 -i eth2 -i eth3 -i eth4 10.82.4.10
 
 # 2. PADA TENGEN (DHCP Server)
 # Tangkap proses pertukaran paket DHCP atau periksa syslog daemon dhcpd:
