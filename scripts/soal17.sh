@@ -28,10 +28,15 @@ nginx -t && service nginx restart
 
 
 # ==== NANAMI ====
-cat <<'EOF' > /var/www/html/api/index.php
+mkdir -p /var/www/api /var/www/html/api
+cat <<'EOF' > /var/www/api/index.php
 <?php
 header("Content-Type: application/json");
-$client_ip = $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN';
+$client_ip = $_SERVER['HTTP_X_REAL_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];
+if (strpos($client_ip, ',') !== false) {
+    $parts = explode(',', $client_ip);
+    $client_ip = trim($parts[0]);
+}
 
 try {
     $pdo = new PDO("mysql:host=10.82.4.8;dbname=db_shibuya_k37", "shibuya_user", "shibuya_pass");
@@ -42,19 +47,25 @@ try {
 echo json_encode([
     "status" => "success",
     "message" => "API Shibuya K37 siap melayani",
-    "worker" => "Worker Nanami (API Server)",
+    "worker" => "Nanami (10.82.4.5)",
     "client_ip" => $client_ip
 ]);
 ?>
 EOF
-service nginx restart
+cp /var/www/api/index.php /var/www/html/api/index.php
+service nginx reload
 
 
 # ==== TODO ====
-cat <<'EOF' > /var/www/html/api/index.php
+mkdir -p /var/www/api /var/www/html/api
+cat <<'EOF' > /var/www/api/index.php
 <?php
 header("Content-Type: application/json");
-$client_ip = $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN';
+$client_ip = $_SERVER['HTTP_X_REAL_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];
+if (strpos($client_ip, ',') !== false) {
+    $parts = explode(',', $client_ip);
+    $client_ip = trim($parts[0]);
+}
 
 try {
     $pdo = new PDO("mysql:host=10.82.4.8;dbname=db_shibuya_k37", "shibuya_user", "shibuya_pass");
@@ -65,19 +76,25 @@ try {
 echo json_encode([
     "status" => "success",
     "message" => "API Shibuya K37 siap melayani",
-    "worker" => "Worker Todo (API Server)",
+    "worker" => "Todo (10.82.4.6)",
     "client_ip" => $client_ip
 ]);
 ?>
 EOF
-service nginx restart
+cp /var/www/api/index.php /var/www/html/api/index.php
+service nginx reload
 
 
 # ==== KIRARA ====
-cat <<'EOF' > /var/www/html/api/index.php
+mkdir -p /var/www/api /var/www/html/api
+cat <<'EOF' > /var/www/api/index.php
 <?php
 header("Content-Type: application/json");
-$client_ip = $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN';
+$client_ip = $_SERVER['HTTP_X_REAL_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];
+if (strpos($client_ip, ',') !== false) {
+    $parts = explode(',', $client_ip);
+    $client_ip = trim($parts[0]);
+}
 
 try {
     $pdo = new PDO("mysql:host=10.82.4.8;dbname=db_shibuya_k37", "shibuya_user", "shibuya_pass");
@@ -88,9 +105,10 @@ try {
 echo json_encode([
     "status" => "success",
     "message" => "API Shibuya K37 siap melayani",
-    "worker" => "Worker Kirara (Backup Server)",
+    "worker" => "Kirara (10.82.4.7)",
     "client_ip" => $client_ip
 ]);
 ?>
 EOF
-service nginx restart
+cp /var/www/api/index.php /var/www/html/api/index.php
+service nginx reload
