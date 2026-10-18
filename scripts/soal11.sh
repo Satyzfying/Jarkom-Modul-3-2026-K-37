@@ -16,6 +16,7 @@ options {
 
     allow-query { any; };
     auth-nxdomain no;
+    listen-on { any; };
     listen-on-v6 { any; };
 };
 EOF
@@ -91,6 +92,7 @@ options {
 
     allow-query { any; };
     auth-nxdomain no;
+    listen-on { any; };
     listen-on-v6 { any; };
 };
 EOF
