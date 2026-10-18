@@ -1,31 +1,21 @@
-#!/bin/sh
-# ==============================================================================
-# PRAKTIKUM JARKOM MODUL 3 - SOAL 16
-# KELOMPOK 37 (K-37) - 2026
-# Public Reverse Proxy Gojo - Path-Based Routing (/ dan /api)
-# ==============================================================================
+#!/bin/bash
 
-test_routing() {
-    echo "=== Menguji Path-Based Routing pada Gojo (jujutsu.k37.com) ==="
-    echo "--- 1. Request ke Root Path (/) [Harus dibalas oleh Maki / Panda] ---"
-    for i in 1 2 3 4; do
-        curl -s http://jujutsu.k37.com/ | tr '\n' ' '
-        echo ""
-    done
+# ==== MAKI ====
+sed -i '/location \/ {/a \        allow 10.82.1.4;\n        deny all;' /etc/nginx/sites-available/default
+nginx -t && service nginx restart
 
-    echo "--- 2. Request ke API Path (/api) [Harus diteruskan ke Geto -> Nanami / Todo] ---"
-    for i in 1 2 3 4; do
-        curl -s http://jujutsu.k37.com/api | tr '\n' ' '
-        echo ""
-    done
-}
+# ==== PANDA ====
+sed -i '/location \/ {/a \        allow 10.82.1.4;\n        deny all;' /etc/nginx/sites-available/default
+nginx -t && service nginx restart
 
-case "${1:-}" in
-    test)
-        test_routing
-        ;;
-    *)
-        echo "Penggunaan: $0 test"
-        exit 1
-        ;;
-esac
+# ==== NANAMI ====
+sed -i '/location \/ {/a \        allow 10.82.4.2;\n        deny all;' /etc/nginx/sites-available/default
+nginx -t && service nginx restart
+
+# ==== TODO ====
+sed -i '/location \/ {/a \        allow 10.82.4.2;\n        deny all;' /etc/nginx/sites-available/default
+nginx -t && service nginx restart
+
+# ==== KIRARA ====
+sed -i '/location \/ {/a \        allow 10.82.4.2;\n        deny all;' /etc/nginx/sites-available/default
+nginx -t && service nginx restart

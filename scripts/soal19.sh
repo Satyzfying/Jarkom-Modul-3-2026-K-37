@@ -1,64 +1,41 @@
-#!/bin/sh
-# ==============================================================================
-# PRAKTIKUM JARKOM MODUL 3 - SOAL 19
-# KELOMPOK 37 (K-37) - 2026
-# Proxy Caching (10m) & Rate Limiting (10 req/s) pada Gojo
-# ==============================================================================
+#!/bin/bash
 
-test_cache() {
-    echo "=== Menguji Proxy Caching Frontend (Header X-Cache-Status) ==="
-    echo "--- Request 1 (Initial / Cache MISS) ---"
-    curl -s -I http://jujutsu.k37.com/ | grep -iE "HTTP|X-Cache-Status"
+# ==== GOJO ====
+mkdir -p /var/cache/nginx
+chown -R www-data:www-data /var/cache/nginx
 
-    sleep 1
-    echo "--- Request 2 (Subsequent / Cache HIT) ---"
-    curl -s -I http://jujutsu.k37.com/ | grep -iE "HTTP|X-Cache-Status"
+cat <<'EOF' > /etc/nginx/sites-available/default
+proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=FRONTEND_CACHE:10m inactive=10m max_size=100m;
+limit_req_zone $binary_remote_addr zone=API_LIMIT:10m rate=10r/s;
 
-    sleep 1
-    echo "--- Request 3 (Subsequent / Cache HIT) ---"
-    curl -s -I http://jujutsu.k37.com/ | grep -iE "HTTP|X-Cache-Status"
+upstream frontend_cluster {
+    server 10.82.4.3:80;
+    server 10.82.4.4:80;
 }
 
-test_rate_limit() {
-    echo "=== Menguji Rate Limiting pada Endpoint /api (Maks 10 r/s) ==="
-    echo "Mengirim 25 request beruntun secara cepat ke http://jujutsu.k37.com/api..."
-    
-    COUNT_200=0
-    COUNT_429=0
-    COUNT_OTHER=0
+server {
+    listen 80 default_server;
+    server_name jujutsu.k37.com www.jujutsu.k37.com _;
 
-    for i in $(seq 1 25); do
-        CODE=$(curl -s -o /dev/null -w "%{http_code}" http://jujutsu.k37.com/api)
-        if [ "$CODE" = "200" ]; then
-            COUNT_200=$((COUNT_200 + 1))
-        elif [ "$CODE" = "429" ] || [ "$CODE" = "503" ]; then
-            COUNT_429=$((COUNT_429 + 1))
-        else
-            COUNT_OTHER=$((COUNT_OTHER + 1))
-        fi
-        echo -n "$CODE "
-    done
-    echo ""
-    echo "Hasil pengujian Rate Limit:"
-    echo " - HTTP 200 (Diterima): $COUNT_200 request"
-    echo " - HTTP 429/503 (Dibatasi/Rate Limited): $COUNT_429 request"
-    echo " - Status Lain: $COUNT_OTHER request"
+    location / {
+        proxy_pass http://frontend_cluster;
+        proxy_cache FRONTEND_CACHE;
+        proxy_cache_valid 200 302 10m;
+        add_header X-Cache-Status $upstream_cache_status;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location /api {
+        limit_req zone=API_LIMIT;
+        limit_req_status 429;
+        proxy_pass http://10.82.4.2/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
 }
+EOF
 
-case "${1:-}" in
-    cache)
-        test_cache
-        ;;
-    rate-limit)
-        test_rate_limit
-        ;;
-    all)
-        test_cache
-        echo ""
-        test_rate_limit
-        ;;
-    *)
-        echo "Penggunaan: $0 {cache|rate-limit|all}"
-        exit 1
-        ;;
-esac
+nginx -t && service nginx restart

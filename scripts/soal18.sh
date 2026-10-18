@@ -1,35 +1,31 @@
-#!/bin/sh
-# ==============================================================================
-# PRAKTIKUM JARKOM MODUL 3 - SOAL 18
-# KELOMPOK 37 (K-37) - 2026
-# Failover API Cluster ke Backup Worker (kirara) & Passive Health Check
-# ==============================================================================
+#!/bin/bash
 
-test_failover() {
-    echo "=== Menguji Failover API ke Backup Worker (Kirara) ==="
-    echo "--- 1. Kondisi Normal (Nanami & Todo Aktif) ---"
-    for i in 1 2 3; do
-        curl -s http://jujutsu.k37.com/api | grep -o '"worker":"[^"]*"'
-    done
-
-    echo ""
-    echo "--- Simulasi: Hentikan Nginx di Nanami & Todo ---"
-    echo "Jalankan di node nanami: service nginx stop"
-    echo "Jalankan di node todo  : service nginx stop"
-    echo ""
-    echo "--- 2. Pengujian Saat Nanami & Todo Padam ---"
-    for i in 1 2 3; do
-        RESP=$(curl -s -w "\nHTTP_STATUS:%{http_code}\n" http://jujutsu.k37.com/api)
-        echo "$RESP" | grep -E '"worker"|HTTP_STATUS'
-    done
+# ==== GETO ====
+cat <<'EOF' > /etc/nginx/sites-available/default
+upstream api_cluster {
+    server 10.82.4.5:80 weight=3 max_fails=2 fail_timeout=5s;
+    server 10.82.4.6:80 weight=1 max_fails=2 fail_timeout=5s;
+    server 10.82.4.7:80 backup;
 }
 
-case "${1:-}" in
-    test)
-        test_failover
-        ;;
-    *)
-        echo "Penggunaan: $0 test"
-        exit 1
-        ;;
-esac
+server {
+    listen 80 default_server;
+    server_name _;
+
+    set_real_ip_from 10.82.1.4;
+    real_ip_header X-Forwarded-For;
+    real_ip_recursive on;
+
+    location / {
+        proxy_pass http://api_cluster;
+        proxy_connect_timeout 2s;
+        proxy_read_timeout 3s;
+        proxy_next_upstream error timeout http_502 http_503;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+EOF
+
+nginx -t && service nginx restart
