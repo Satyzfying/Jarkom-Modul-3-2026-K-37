@@ -1676,17 +1676,20 @@ Script pengujian disimpan di [`scripts/soal20.sh`](scripts/soal20.sh).
 
 | Metrik Evaluasi | Frontend Root (`/`) | API Backend (`/api`) |
 |---|---|---|
-| **Status Proteksi** | Nginx Proxy Caching (RAM/Disk) | Rate Limiting (10 r/s, burst 5) |
+| **Status Proteksi** | Nginx Proxy Caching (RAM/Disk) | Rate Limiting (10 r/s) |
 | **Complete Requests** | 600 / 600 (100% tuntas) | 600 / 600 (100% tuntas) |
-| **Failed Requests** | **0** | **0** |
+| **Failed Requests** | **0** | **599 (Connect: 0, Receive: 0, Length: 599)\*** |
 | **Non-2xx Responses** | 0 | 599 (Ditolak rapi via HTTP 429) |
-| **Throughput (Requests/sec)** | **6,676.90 [#/sec]** | **6,541.93 [#/sec]** |
-| **Time per request (mean)** | **4.493 ms** | **4.586 ms** |
-| **Transfer Rate** | 2,255.85 KB/s | 2,194.50 KB/s |
+| **Throughput (Requests/sec)** | **6,676.90 [#/sec]** | **6,013.47 [#/sec]** |
+| **Time per request (mean)** | **4.493 ms** | **4.989 ms** |
+| **Transfer Rate** | 2,255.85 KB/s | 1,837.39 KB/s |
+
+> \*) **Catatan Penting Metrik `Failed Requests` pada Endpoint `/api`:**
+> Rincian `(Connect: 0, Receive: 0, Length: 599, Exceptions: 0)` membuktikan bahwa **tidak ada error koneksi atau socket drop sama sekali**. Label `Length: 599` muncul semata-mata karena ApacheBench membandingkan ukuran byte response pertama (HTTP 200 JSON, 118 bytes) dengan 599 response berikutnya yang berupa halaman HTTP 429 Nginx (ukuran HTML berbeda). Hal ini justru merupakan **bukti keberhasilan proteksi Rate Limiting** yang membatasi semburan request berlebih secara tertib.
 
 **Kesimpulan Audit:**
 1. **Frontend Root (`/`)**: Menunjukkan performa throughput tinggi (mencapai **~6.676 RPS** dengan latensi rata-rata hanya **4.49 ms**). Hal ini membuktikan efektivitas proxy cache Gojo dalam melayani trafik masif tanpa membebani worker backend Maki dan Panda.
-2. **API Backend (`/api`)**: Mekanisme rate limiting berhasil menahan semburan 600 request konkruen tanpa crash, di mana request yang melebihi kuota 10 r/s langsung di-throttle dengan kode HTTP 429, sehingga stabilitas server database Yaga dan cluster API tetap terjaga 100%.
+2. **API Backend (`/api`)**: Mekanisme rate limiting berhasil menahan semburan 600 request konkruen tanpa crash, di mana 599 request yang melebihi kuota 10 r/s langsung di-throttle dengan kode status HTTP 429 (Too Many Requests), sehingga stabilitas server database Yaga dan cluster API tetap terjaga 100%.
 
 > **Catatan Troubleshooting Saat Demo:**
 > - Jika `ab` error `apr_socket_recv: Connection reset by peer`:
