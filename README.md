@@ -1258,34 +1258,37 @@ Script konfigurasi disimpan di [`scripts/soal13.sh`](scripts/soal13.sh).
 **Pengujian:**
 1. Di node **inumaki**, periksa status kesehatan replikasi MariaDB:
    ```bash
-   mariadb -u root -e "SHOW REPLICA STATUS\G" | grep -E "Replica_IO_Running|Replica_SQL_Running|Seconds_Behind_Master"
+   mariadb -u root -e "SHOW SLAVE STATUS\G" | grep -E "Slave_IO_Running|Slave_SQL_Running|Seconds_Behind_Master"
    ```
    Hasil harus menunjukkan:
-   - `Replica_IO_Running: Yes`
-   - `Replica_SQL_Running: Yes`
+   - `Slave_IO_Running: Yes`
+   - `Slave_SQL_Running: Yes`
    - `Seconds_Behind_Master: 0`
 2. Uji sinkronisasi penulisan data dari Master:
    - Di **yaga**:
      ```bash
-     mariadb -u root -e "INSERT INTO db_shibuya_k37.test_sync (pesan) VALUES ('Sync Master Yaga OK');"
+     mariadb -u root db_shibuya_k37 -e "INSERT INTO request_logs (client_ip, worker_node) VALUES ('10.82.4.8', 'Sync Master Yaga OK');"
      ```
    - Di **inumaki**:
      ```bash
-     mariadb -u root -e "SELECT * FROM db_shibuya_k37.test_sync;"
+     mariadb -u root db_shibuya_k37 -e "SELECT * FROM request_logs ORDER BY id DESC LIMIT 1;"
      ```
-     Data yang di-insert di Yaga langsung tersaji di Inumaki secara real-time.
+     Data yang dimasukkan di Master Yaga seketika tersinkronisasi ke Slave Inumaki secara real-time.
 3. Uji proteksi read-only di Slave:
-   - Di **inumaki**, coba lakukan penulisan:
+   - Di **inumaki**, pastikan status parameter `read_only` aktif:
      ```bash
-     mariadb -u root -e "INSERT INTO db_shibuya_k37.test_sync (pesan) VALUES ('Uji Coba Gagal');"
+     mariadb -u root -e "SHOW VARIABLES LIKE 'read_only';"
      ```
-     Operasi ditolak oleh MariaDB karena node berstatus `--read-only`.
+     Hasil menunjukkan nilai `ON`.
+   - *Catatan teknis:* Pada MariaDB/MySQL, direktif `--read-only` membatasi seluruh user non-SUPER (seperti user aplikasi/worker), sedangkan user `root` memiliki privilege `SUPER` bawaan sehingga tetap dapat melakukan pemeliharaan database.
 
 > **Catatan Troubleshooting Saat Demo:**
-> - Jika `Replica_IO_Running: Connecting` atau `No`:
+> - Jika `Slave_IO_Running: Connecting` atau `No`:
 >   1. Pastikan `bind-address` di Yaga adalah `0.0.0.0` (`cat /etc/mysql/mariadb.conf.d/50-server.cnf | grep bind-address`).
 >   2. Tes koneksi port 3306 dari Inumaki ke Yaga: `nc -zv 10.82.4.8 3306`.
 >   3. Pastikan user `replica` memiliki hak akses `BINLOG MONITOR` pada MariaDB versi 11.
+> - Jika data di Yaga tidak tersinkronisasi ke Inumaki:
+>   Pastikan query penulisan selalu menyertakan database aktif (misal `mariadb -u root db_shibuya_k37 -e "..."` atau diawali `USE db_shibuya_k37;`) karena filter `binlog_do_db` MariaDB bekerja berdasarkan database default yang sedang dipilih.
 > - Jika MariaDB di Yaga gagal start setelah konfigurasi `log_bin`:
 >   Pastikan direktori `/var/log/mysql` sudah ada dan di-chown ke `mysql:mysql` (`mkdir -p /var/log/mysql && chown -R mysql:mysql /var/log/mysql`).
 
