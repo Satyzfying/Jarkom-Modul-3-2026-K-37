@@ -37,8 +37,8 @@ $endpoint = $_SERVER['REQUEST_URI'];
 try {
     $mysqli = new mysqli('10.82.4.8', 'shibuya_user', 'shibuya_pass', 'db_shibuya_k37');
     if (!$mysqli->connect_errno) {
-        $stmt = $mysqli->prepare("INSERT INTO request_logs (client_ip, worker_name, endpoint) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $client_ip, $worker, $endpoint);
+        $stmt = $mysqli->prepare("INSERT INTO request_logs (client_ip, worker_node) VALUES (?, ?)");
+        $stmt->bind_param("ss", $client_ip, $worker);
         $stmt->execute();
         $stmt->close();
         $mysqli->close();

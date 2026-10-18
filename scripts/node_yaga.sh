@@ -8,9 +8,9 @@ sed -i 's/^#log_bin/log_bin/' /etc/mysql/mariadb.conf.d/50-server.cnf
 grep -q binlog_do_db /etc/mysql/mariadb.conf.d/50-server.cnf || sed -i '/log_bin/a binlog_do_db = db_shibuya_k37' /etc/mysql/mariadb.conf.d/50-server.cnf
 service mariadb restart
 mariadb -e "CREATE DATABASE IF NOT EXISTS db_shibuya_k37;"
-mariadb -e "USE db_shibuya_k37; CREATE TABLE IF NOT EXISTS request_logs (id INT AUTO_INCREMENT PRIMARY KEY, client_ip VARCHAR(50) NOT NULL, request_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, worker_name VARCHAR(50), endpoint VARCHAR(100));"
+mariadb -e "USE db_shibuya_k37; CREATE TABLE IF NOT EXISTS request_logs (id INT AUTO_INCREMENT PRIMARY KEY, client_ip VARCHAR(50) NOT NULL, worker_node VARCHAR(50), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);"
 mariadb -e "CREATE USER IF NOT EXISTS 'replica'@'%' IDENTIFIED BY 'replica_pass';"
-mariadb -e "GRANT REPLICATION SLAVE ON *.* TO 'replica'@'%';"
+mariadb -e "GRANT REPLICATION SLAVE, REPLICATION CLIENT, BINLOG MONITOR ON *.* TO 'replica'@'%';"
 mariadb -e "CREATE USER IF NOT EXISTS 'shibuya_user'@'10.82.4.%' IDENTIFIED BY 'shibuya_pass';"
 mariadb -e "GRANT ALL PRIVILEGES ON db_shibuya_k37.* TO 'shibuya_user'@'10.82.4.%';"
 mariadb -e "FLUSH PRIVILEGES;"

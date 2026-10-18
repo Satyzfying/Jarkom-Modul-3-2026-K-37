@@ -28,7 +28,7 @@ mariadb -e "USE db_shibuya_k37; CREATE TABLE IF NOT EXISTS request_logs (
 );"
 
 mariadb -e "CREATE USER IF NOT EXISTS 'replica'@'10.82.4.%' IDENTIFIED BY 'replica_pass';"
-mariadb -e "GRANT REPLICATION SLAVE, BINLOG MONITOR ON *.* TO 'replica'@'10.82.4.%';"
+mariadb -e "GRANT REPLICATION SLAVE, REPLICATION CLIENT, BINLOG MONITOR ON *.* TO 'replica'@'10.82.4.%';"
 
 mariadb -e "CREATE USER IF NOT EXISTS 'shibuya_user'@'10.82.4.%' IDENTIFIED BY 'shibuya_pass';"
 mariadb -e "GRANT ALL PRIVILEGES ON db_shibuya_k37.* TO 'shibuya_user'@'10.82.4.%';"
